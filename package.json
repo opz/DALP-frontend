@@ -9,7 +9,9 @@
     "bootstrap": "^4.4.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "web3": "^1.2.7",
+    "web3modal": "^1.6.3"
   },
   "scripts": {
     "start": "react-scripts start",

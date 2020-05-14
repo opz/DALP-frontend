@@ -5,8 +5,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="container">
-        <h1>Welcome to DALP.</h1>
+      <div id="page">
+        <div className="container">
+          <h1>Welcome to DALP.</h1>
+        </div>
       </div>
     </div>
   );

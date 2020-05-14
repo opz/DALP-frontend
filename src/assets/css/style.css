@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("../fonts/SofiaProRegular.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sofia Pro Medium";
+  src: url("../fonts/SofiaProMedium.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sofia Pro Light";
+  src: url("../fonts/SofiaProLight.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sofia Pro Extra Light";
+  src: url("../fonts/SofiaProExtraLight.otf");
+  font-display: swap;
+}
+
+body {
+  font-family: 'Sofia Pro';
+}
+
+#page {
+  margin-top: 30px;
+}

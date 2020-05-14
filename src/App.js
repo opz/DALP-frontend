@@ -8,6 +8,7 @@ function App() {
       <div id="page">
         <div className="container">
           <h1>Welcome to DALP.</h1>
+          <h3>Barlow?</h3>
         </div>
       </div>
     </div>

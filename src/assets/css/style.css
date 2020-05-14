@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500;700&display=swap');
+
 @font-face {
   font-family: "Sofia Pro";
   src: url("../fonts/SofiaProRegular.otf");
@@ -28,4 +30,9 @@ body {
 
 #page {
   margin-top: 30px;
+}
+
+h3 {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
 }

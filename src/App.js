@@ -1,16 +1,18 @@
 import React from 'react';
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Header from './components/layout/Header';
+import { Home, Dashboard } from "./components/pages";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <div id="page">
-        <div className="container">
-          <h1>Welcome to DALP.</h1>
-          <h3>Barlow?</h3>
-        </div>
-      </div>
+      <BrowserRouter>
+        <Header />
+        <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/dashboard" component={Dashboard} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }

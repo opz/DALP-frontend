@@ -1,6 +1,7 @@
 import React from "react";
 import Web3 from "web3";
 import Web3Modal from "web3modal";
+import { NavLink, withRouter } from "react-router-dom";
 
 const providerOptions = {};
 
@@ -10,7 +11,7 @@ const web3Modal = new Web3Modal({
   providerOptions // required
 });
 
-const Header = ({}) => {
+const Header = ({ match, location }) => {
   async function connect() {
     try {
       const provider = await web3Modal.connect();
@@ -19,6 +20,9 @@ const Header = ({}) => {
       console.error(err);
     }
   }
+
+  console.log(match);
+  console.log(location);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -40,10 +44,10 @@ const Header = ({}) => {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <a className="nav-link" href="#">
-                Home <span className="sr-only">(current)</span>
-              </a>
+            <li className="nav-item">
+              <NavLink exact to="/" className="nav-link">
+                Home
+              </NavLink>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
@@ -61,9 +65,9 @@ const Header = ({}) => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Contact
-              </a>
+              <NavLink to="/dashboard" className="nav-link">
+                Dashboard
+              </NavLink>
             </li>
           </ul>
           <form className="form-inline my-2 my-lg-0">
@@ -81,4 +85,4 @@ const Header = ({}) => {
   );
 };
 
-export default Header;
+export default withRouter(Header);

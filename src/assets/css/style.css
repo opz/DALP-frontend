@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');
+
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("../fonts/SofiaProRegular.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sofia Pro Medium";
+  src: url("../fonts/SofiaProMedium.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sofia Pro Light";
+  src: url("../fonts/SofiaProLight.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sofia Pro Extra Light";
+  src: url("../fonts/SofiaProExtraLight.otf");
+  font-display: swap;
+}
+
+body {
+  font-family: 'Sofia Pro';
+}
+
+#page {
+  margin-top: 30px;
+}
+
+h3 {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+}
+
+
+.navbar {
+  height: 80px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  margin-right: 60px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.navbar-brand > img {
+  height: 32px;
+  margin-right: 10px;
+}
+
+.navbar .nav-item {
+  margin-right: 15px;
+}
+
+.navbar-light .navbar-brand {
+  color: #004AD7;
+}
+
+.navbar-blue {
+  background: #004AD7;
+  font-family: 'Sofia Pro';
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.navbar-blue a {
+  color: white;
+}

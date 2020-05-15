@@ -2,6 +2,8 @@ import React from "react";
 import Web3 from "web3";
 import Web3Modal from "web3modal";
 import { NavLink, withRouter } from "react-router-dom";
+import iconWhite from "../../assets/images/icon-white.png";
+import iconBlue from "../../assets/images/icon-blue.png";
 
 const providerOptions = {};
 
@@ -21,13 +23,15 @@ const Header = ({ match, location }) => {
     }
   }
 
-  console.log(match);
-  console.log(location);
+  console.log(location.pathname);
+
+  const isDashboard = location.pathname === "/dashboard";
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className={`navbar navbar-expand-lg ${ isDashboard ? `navbar-blue` : `navbar-light`}`}>
       <div className="container">
         <a className="navbar-brand" href="#">
+          <img src={isDashboard ? iconWhite : iconBlue } />
           DALP
         </a>
         <button

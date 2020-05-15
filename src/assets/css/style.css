@@ -75,3 +75,8 @@ h3 {
 .navbar-blue a {
   color: white;
 }
+
+a.nav-link.active {
+  border-bottom: 1px solid white;
+  padding-bottom: 0px;
+}

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import Web3 from "web3";
 import Web3Modal from "web3modal";
 import { NavLink, withRouter } from "react-router-dom";
@@ -13,25 +14,46 @@ const web3Modal = new Web3Modal({
   providerOptions // required
 });
 
+const WalletButton = styled.button`
+  color: white;
+  background: rgba(0,0,0,.25);
+  padding: 10px 15px;
+  border: 0px;
+  font-size: 12px;
+  border-radius: 50px;
+`;
+
 const Header = ({ match, location }) => {
+  const [account, setAccount] = useState(null);
+
   async function connect() {
     try {
       const provider = await web3Modal.connect();
       const web3 = new Web3(provider);
+      const accounts = await web3.eth.getAccounts();
+      setAccount(accounts[0]);
     } catch (err) {
       console.error(err);
     }
   }
 
-  console.log(location.pathname);
+  useEffect(() => {
+    if (window.web3) {
+      connect();
+    }
+  }, []);
 
   const isDashboard = location.pathname === "/dashboard";
 
   return (
-    <nav className={`navbar navbar-expand-lg ${ isDashboard ? `navbar-blue` : `navbar-light`}`}>
+    <nav
+      className={`navbar navbar-expand-lg ${
+        isDashboard ? `navbar-blue` : `navbar-light`
+      }`}
+    >
       <div className="container">
         <a className="navbar-brand" href="#">
-          <img src={isDashboard ? iconWhite : iconBlue } />
+          <img src={isDashboard ? iconWhite : iconBlue} />
           DALP
         </a>
         <button
@@ -74,7 +96,9 @@ const Header = ({ match, location }) => {
               </NavLink>
             </li>
           </ul>
-          <form className="form-inline my-2 my-lg-0">
+          {account ? (
+            <WalletButton>{account.slice(0, 6)+"..."+account.slice(account.length - 4, account.length)}</WalletButton>
+          ) : (
             <button
               className="btn btn-primary my-2 my-sm-0"
               type="button"
@@ -82,7 +106,7 @@ const Header = ({ match, location }) => {
             >
               Connect
             </button>
-          </form>
+          )}
         </div>
       </div>
     </nav>

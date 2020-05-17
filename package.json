@@ -22,10 +22,6 @@
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-<<<<<<< HEAD
-    "react-redux": "^7.2.0",
-=======
->>>>>>> 483f85a435461ec815e76bb8b02e487f6f900b37
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-toastify": "^6.0.4",

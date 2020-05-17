@@ -1,16 +1,16 @@
 import Web3 from "web3";
 import { default as conAddresses } from "Constants/chain/web3Config";
-import abi from "Chain/abi";
+// import abi from "Chain/abi";
 import Web3Contract from "./Web3Contract";
-import Storage from "Storage";
-import * as dbNames from "Storage/DBNames";
+// import Storage from "Storage";
+// import * as dbNames from "Storage/DBNames";
 import { Creators as ChainCreators } from "Redux/chain/actions";
 import HttpProviderPath from "./HttpProviderPath";
 
 //the maximum numbre of blocks we care about. Be careful what to set this
 //to as it impacts how long startup will take when no local storage or
 //event data exists. 8K is generally the number of mainnet blocks per day.
-const MAX_BLOCKS = 8000;
+// const MAX_BLOCKS = 8000;
 
 export default class Web3Wrapper {
   constructor(props) {
@@ -26,8 +26,8 @@ export default class Web3Wrapper {
       "getMissingBlockRanges",
       "checkInDispute",
       "_storeBlockTime",
-      "fillBlockGap"
-    ].forEach(fn => {
+      "fillBlockGap",
+    ].forEach((fn) => {
       if (!this[fn]) {
         throw new Error("Web3Wrapper missing fn: " + fn);
       }
@@ -73,7 +73,7 @@ export default class Web3Wrapper {
         }
 
         //If the user changes account in metamask
-        ethProvider.on("accountsChanged", async accounts => {
+        ethProvider.on("accountsChanged", async (accounts) => {
           //grab new account and assign as contract default caller address
           this.ethereumAccount = accounts[0];
           if (this.contract) {
@@ -106,7 +106,7 @@ export default class Web3Wrapper {
         //create eth contract with default address defined in
         //Constants/chain/web3Config
         let master = new this.web3.eth.Contract(abi, addr, {
-          address: addr
+          address: addr,
         });
 
         //our contract wrapper
@@ -114,7 +114,7 @@ export default class Web3Wrapper {
           chain: this,
           master,
           address: addr,
-          caller: acts[0]
+          caller: acts[0],
         });
 
         //the default account selected in metamask
@@ -130,16 +130,16 @@ export default class Web3Wrapper {
   }
 
   //call on chain to determine if the current account is in dispute
-  async checkInDispute() {
-    try {
-      let r = await this.contract.isInDispute(this.ethereumAccount);
-      console.log("Result from dispute check", this.ethereumAccount, r);
+  // async checkInDispute() {
+  //   try {
+  //     let r = await this.contract.isInDispute(this.ethereumAccount);
+  //     console.log("Result from dispute check", this.ethereumAccount, r);
 
-      this.isInDispute = r;
-    } catch (e) {
-      console.log("Unsure if in dispute due to call error", e);
-    }
-  }
+  //     this.isInDispute = r;
+  //   } catch (e) {
+  //     console.log("Unsure if in dispute due to call error", e);
+  //   }
+  // }
 
   async unload() {
     console.log("Getting unload");
@@ -189,96 +189,96 @@ export default class Web3Wrapper {
   /**
    * Get any gaps in block numbers that need to be restored
    */
-  async getMissingBlockRanges(limit) {
-    //read all block metadata stored locally
-    let all = await Storage.instance.readAll({
-      database: dbNames.Blocks,
-      limit: limit || MAX_BLOCKS, //about a day
-      sort: [
-        {
-          field: "blockNumber",
-          order: "desc"
-        }
-      ]
-    });
-    let gaps = [];
+  // async getMissingBlockRanges(limit) {
+  //   //read all block metadata stored locally
+  //   let all = await Storage.instance.readAll({
+  //     database: dbNames.Blocks,
+  //     limit: limit || MAX_BLOCKS, //about a day
+  //     sort: [
+  //       {
+  //         field: "blockNumber",
+  //         order: "desc",
+  //       },
+  //     ],
+  //   });
+  //   let gaps = [];
 
-    //the last locally-known block
-    let last = all[0] ? all[0].blockNumber - 0 : 0;
+  //   //the last locally-known block
+  //   let last = all[0] ? all[0].blockNumber - 0 : 0;
 
-    //the first gap could be from the latest block back
-    //NOTE: we can't go back to zero as this would scan forever
-    //on test or mainnet. Instead, we limit scans to MAX_BLOCKS
-    if (last < this.block) {
-      let diff = this.block - last;
-      if (diff > MAX_BLOCKS) {
-        last = this.block - MAX_BLOCKS;
-      }
-      gaps.push({
-        start: last,
-        end: this.block
-      });
-    }
+  //   //the first gap could be from the latest block back
+  //   //NOTE: we can't go back to zero as this would scan forever
+  //   //on test or mainnet. Instead, we limit scans to MAX_BLOCKS
+  //   if (last < this.block) {
+  //     let diff = this.block - last;
+  //     if (diff > MAX_BLOCKS) {
+  //       last = this.block - MAX_BLOCKS;
+  //     }
+  //     gaps.push({
+  //       start: last,
+  //       end: this.block,
+  //     });
+  //   }
 
-    all.forEach(a => {
-      //if current block is earlier than one less than last
-      //there is a gap
-      if (a.blockNumber - 0 < last - 1) {
-        let diff = last - (a.blockNumber - 0);
-        if (diff < MAX_BLOCKS) {
-          gaps.push({
-            //gap starts with the current block
-            start: a.blockNumber - 0,
-            //going forward in ascending order to last one seen
-            end: last
-          });
-        }
-      }
-      last = a.blockNumber - 0;
-    });
+  //   all.forEach((a) => {
+  //     //if current block is earlier than one less than last
+  //     //there is a gap
+  //     if (a.blockNumber - 0 < last - 1) {
+  //       let diff = last - (a.blockNumber - 0);
+  //       if (diff < MAX_BLOCKS) {
+  //         gaps.push({
+  //           //gap starts with the current block
+  //           start: a.blockNumber - 0,
+  //           //going forward in ascending order to last one seen
+  //           end: last,
+  //         });
+  //       }
+  //     }
+  //     last = a.blockNumber - 0;
+  //   });
 
-    //we need to reverse sort the gaps because they are currently
-    //in descending order. They need to be in increasing order so
-    //that replay order is preserved at startup. Otherwise, the latest
-    //state would be overwritten by early state!
-    gaps.sort((a, b) => {
-      return a.start - b.start;
-    });
-    console.log("Recovering gaps", gaps);
-    return gaps;
-  }
+  //   //we need to reverse sort the gaps because they are currently
+  //   //in descending order. They need to be in increasing order so
+  //   //that replay order is preserved at startup. Otherwise, the latest
+  //   //state would be overwritten by early state!
+  //   gaps.sort((a, b) => {
+  //     return a.start - b.start;
+  //   });
+  //   console.log("Recovering gaps", gaps);
+  //   return gaps;
+  // }
 
   /**
    * Record that the given gap has been satisfied
    */
-  async fillBlockGap(gap) {
-    console.log("Filling block gap", gap);
-    for (let i = gap.start; i <= gap.end; ++i) {
-      let t = this.times[i];
-      if (!t) {
-        let b = await this.web3.eth.getBlock(i);
-        if (b) {
-          this.times[i] = b.timestamp;
-          await this._storeBlockTime(b);
-        }
-      }
-    }
-  }
+  // async fillBlockGap(gap) {
+  //   console.log("Filling block gap", gap);
+  //   for (let i = gap.start; i <= gap.end; ++i) {
+  //     let t = this.times[i];
+  //     if (!t) {
+  //       let b = await this.web3.eth.getBlock(i);
+  //       if (b) {
+  //         this.times[i] = b.timestamp;
+  //         await this._storeBlockTime(b);
+  //       }
+  //     }
+  //   }
+  // }
 
   /**
    * Store that  block has been received
    */
-  async _storeBlockTime(block) {
-    if (!block) {
-      return;
-    }
-    await Storage.instance.create({
-      database: dbNames.Blocks,
-      key: "" + block.number,
-      data: {
-        blockNumber: block.number,
-        timestamp: block.timestamp
-      }
-    });
-  }
+  // async _storeBlockTime(block) {
+  //   if (!block) {
+  //     return;
+  //   }
+  //   await Storage.instance.create({
+  //     database: dbNames.Blocks,
+  //     key: "" + block.number,
+  //     data: {
+  //       blockNumber: block.number,
+  //       timestamp: block.timestamp,
+  //     },
+  //   });
+  // }
 }

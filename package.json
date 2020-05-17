@@ -7,16 +7,37 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "@toruslabs/torus-embed": "^1.4.3",
+    "@types/styled-components": "^5.1.0",
+    "@walletconnect/utils": "^1.0.0-beta.47",
     "@walletconnect/web3-provider": "^1.0.0-beta.47",
-    "bootstrap": "^4.4.1",
+    "authereum": "^0.0.4-beta.155",
+    "axios": "^0.19.2",
+    "blockies-ts": "^1.0.0",
+    "bootstrap": "^4.5.0",
+    "classnames": "^2.2.6",
+    "cross-env": "^7.0.2",
+    "ethers": "^4.0.47",
+    "fortmatic": "^2.0.6",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-toastify": "^6.0.4",
+    "reactstrap": "^8.4.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "reduxsauce": "^1.1.2",
+    "styled-components": "^5.1.0",
+    "typescript": "^3.9.2",
+    "uuid": "^8.0.0",
     "web3": "^1.2.7",
     "web3modal": "^1.6.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env NODE_PATH=src SASS_PATH=node_modules:src/scss react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -35,5 +56,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "redux-logger": "^3.0.6"
   }
 }

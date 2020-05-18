@@ -1,12 +1,18 @@
 import React from "react";
+import styled from "styled-components";
+
+const StyledCard = styled.div`
+    margin-bottom: 20px;
+    font-family: 'Barlow', sans-serif;
+`;
 
 const Card = ({ title, children }) => (
-    <div className="card">
+    <StyledCard className="card">
         <div className="card-header">
             {title}
         </div>
         {children}
-    </div>
+    </StyledCard>
 )
 
 export default Card;

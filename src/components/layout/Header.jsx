@@ -69,33 +69,50 @@ const Header = ({ match, location }) => {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item">
-              <NavLink exact to="/" className="nav-link">
-                Home
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Features
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                About
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Docs
-              </a>
-            </li>
-            <li className="nav-item">
-              <NavLink to="/dashboard" className="nav-link">
-                Dashboard
-              </NavLink>
-            </li>
-          </ul>
+          {
+            isDashboard ? (
+              <ul className="navbar-nav mr-auto">
+                <li className="nav-item">
+                  <NavLink to="/dashboard" className="nav-link">
+                    Dashboard
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink to="/transactions" className="nav-link">
+                    Transactions
+                  </NavLink>
+                </li>
+              </ul>
+            ) : (
+              <ul className="navbar-nav mr-auto">
+                <li className="nav-item">
+                  <NavLink exact to="/" className="nav-link">
+                    Home
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <a href="#pools" className="nav-link">
+                    Pools
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a href="#features" className="nav-link">
+                    Features
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a href="#performance" className="nav-link">
+                    Performance
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a href="#contact" className="nav-link">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            )
+          }
           {account ? (
             <WalletButton>{account.slice(0, 6)+"..."+account.slice(account.length - 4, account.length)}</WalletButton>
           ) : (

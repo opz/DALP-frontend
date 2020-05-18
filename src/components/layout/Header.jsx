@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Web3 from "web3";
 import Web3Modal from "web3modal";
-import { NavLink, withRouter } from "react-router-dom";
+import { Link, NavLink, withRouter } from "react-router-dom";
 import iconWhite from "../../assets/images/icon-white.png";
 import iconBlue from "../../assets/images/icon-blue.png";
 
@@ -14,13 +14,14 @@ const web3Modal = new Web3Modal({
   providerOptions // required
 });
 
-const WalletButton = styled.button`
-  color: white;
+const WalletButton = styled(Link)`
+  color: white !important;
   background: rgba(0,0,0,.25);
   padding: 10px 15px;
   border: 0px;
   font-size: 12px;
   border-radius: 50px;
+  text-decoration: none;
 `;
 
 const Header = ({ match, location }) => {
@@ -52,10 +53,10 @@ const Header = ({ match, location }) => {
       }`}
     >
       <div className="container">
-        <a className="navbar-brand" href="#">
+        <Link to="/" className="navbar-brand" href="#">
           <img src={isDashboard ? iconWhite : iconBlue} />
           DALP
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -114,7 +115,7 @@ const Header = ({ match, location }) => {
             )
           }
           {account ? (
-            <WalletButton>{account.slice(0, 6)+"..."+account.slice(account.length - 4, account.length)}</WalletButton>
+            <WalletButton to="/dashboard">{account.slice(0, 6)+"..."+account.slice(account.length - 4, account.length)}</WalletButton>
           ) : (
             <button
               className="btn btn-primary my-2 my-sm-0"

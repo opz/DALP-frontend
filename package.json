@@ -29,10 +29,12 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "reduxsauce": "^1.1.2",
+    "rimble-ui": "^0.14.0",
     "styled-components": "^5.1.0",
     "typescript": "^3.9.2",
     "uuid": "^8.0.0",
     "web3": "^1.2.7",
+    "web3-react": "^5.0.5",
     "web3modal": "^1.6.3"
   },
   "scripts": {

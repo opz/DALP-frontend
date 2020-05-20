@@ -1,40 +1,47 @@
-import React from "react";
-import Web3 from "web3";
-import Web3Modal from "web3modal";
+import React, { useEffect, useState } from "react";
+import { useWeb3Context } from "web3-react";
+// import Web3 from "web3";
+// import Web3Modal from "web3modal";
 import { NavLink, withRouter } from "react-router-dom";
 import iconWhite from "../../assets/images/icon-white.png";
 import iconBlue from "../../assets/images/icon-blue.png";
+// import { MetaMaskButton } from "rimble-ui";
 
-const providerOptions = {};
+import Web3ModalNew from "../Web3ModalNew";
 
-const web3Modal = new Web3Modal({
-  network: "mainnet", // optional
-  cacheProvider: true, // optional
-  providerOptions // required
-});
+// const providerOptions = {};
 
-// import Web3Modal fro../Web3ModalOLD/index.tsx";
-
+// const web3Modal = new Web3Modal({
+//   network: "mainnet", // optional
+//   cacheProvider: false, // optional
+//   providerOptions, // required
+// });
 
 const Header = ({ match, location }) => {
-  async function connect() {
-    try {
-      const provider = await web3Modal.connect();
-      const web3 = new Web3(provider);
-    } catch (err) {
-      console.error(err);
-    }
-  }
+  //  from web3
+  // async function connect() {
+  //   console.log("connect");
+  //   try {
+  //     const provider = await web3Modal.connect();
+  //     const web3 = new Web3(provider);
+  //   } catch (err) {
+  // console.error(err);
+  //   }
+  // }
 
   console.log(location.pathname);
 
   const isDashboard = location.pathname === "/dashboard";
 
   return (
-    <nav className={`navbar navbar-expand-lg ${ isDashboard ? `navbar-blue` : `navbar-light`}`}>
+    <nav
+      className={`navbar navbar-expand-lg ${
+        isDashboard ? `navbar-blue` : `navbar-light`
+      }`}
+    >
       <div className="container">
         <a className="navbar-brand" href="#">
-          <img src={isDashboard ? iconWhite : iconBlue } />
+          <img src={isDashboard ? iconWhite : iconBlue} />
           DALP
         </a>
         <button
@@ -77,16 +84,9 @@ const Header = ({ match, location }) => {
               </NavLink>
             </li>
           </ul>
-          <form className="form-inline my-2 my-lg-0">
-            <button
-              className="btn btn-primary my-2 my-sm-0"
-              type="button"
-              onClick={connect}
-            >
-              Connect
-            </button>
+          <form>
+            <Web3ModalNew />
           </form>
-          {/* <Web3Modal /> */}
         </div>
       </div>
     </nav>
@@ -94,3 +94,13 @@ const Header = ({ match, location }) => {
 };
 
 export default withRouter(Header);
+
+/* <form className="form-inline my-2 my-lg-0">
+            <button
+              className="btn btn-primary my-2 my-sm-0"
+              type="button"
+              onClick={connect}
+            >
+              Connect
+            </button>
+          </form> */

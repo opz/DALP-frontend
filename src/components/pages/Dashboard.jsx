@@ -2,7 +2,7 @@ import React from "react";
 import BalanceCard from "../elements/BalanceCard";
 import BuyForm from "../elements/BuyForm";
 
-const Dashboard = ({}) => (
+const Dashboard = () => (
   <div id="page">
     <div className="container">
       <div className="row">

@@ -10,10 +10,10 @@ const BalanceCard = ({ amount, supply }) => {
     return (
         <Card title="Your Balance">
             <div className="card-body text-center">
-                <StyledH2>{amount.toFixed(2)}</StyledH2>
+                <StyledH2 data-testid="DALP Balance">{amount.toFixed(2)}</StyledH2>
                 <h5>DALP Balance</h5>
                 <hr />
-                <h3>{supply.toFixed(2)}</h3>
+                <h3 data-testid="Total Supply">{supply.toFixed(2)}</h3>
                 <h5>Total Supply</h5>
             </div>
         </Card>

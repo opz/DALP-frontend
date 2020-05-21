@@ -54,7 +54,7 @@ const Header = ({ match, location }) => {
     >
       <div className="container">
         <Link to="/" className="navbar-brand" href="#">
-          <img src={isDashboard ? iconWhite : iconBlue} />
+          <img alt="DALP Logo" src={isDashboard ? iconWhite : iconBlue} />
           DALP
         </Link>
         <button

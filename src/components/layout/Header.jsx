@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useWeb3Context } from "web3-react";
+import { useWeb3React } from "@web3-react/core";
 // import Web3 from "web3";
 // import Web3Modal from "web3modal";
 import { NavLink, withRouter } from "react-router-dom";

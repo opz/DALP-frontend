@@ -73,7 +73,7 @@ const ConnectButton = ({ history }) => {
 
     return account ? (
         <React.Fragment>
-              <button onClick={disconnect}>Disconnect</button>
+              {/* <button onClick={disconnect}>Disconnect</button> */}
               <WalletButton to="/dashboard">{account.slice(0, 6)+"..."+account.slice(account.length - 4, account.length)}</WalletButton>
             </React.Fragment>
     ) : (

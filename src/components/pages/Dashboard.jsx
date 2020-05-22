@@ -3,6 +3,7 @@ import BalanceCard from "../elements/BalanceCard";
 import BuyForm from "../elements/BuyForm";
 import { WalletContext } from "../../providers/wallet";
 import PoolAllocation from "../elements/PoolAllocation";
+import PerformanceLine from "../elements/PerformanceLine";
 
 
 
@@ -24,7 +25,8 @@ const Dashboard = () => {
             <h1>Loading...</h1>
           )}
           <div className="col-md-8">
-            <h5 className="card-title">30-Day Performance</h5>
+            <PerformanceLine />
+            <hr />
            <PoolAllocation />
           </div>
         </div>

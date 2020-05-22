@@ -4,7 +4,6 @@ import { Card } from "../styled";
 import { WalletContext } from "../../providers/wallet";
 import Web3 from "web3";
 
-
 const StyledH2 = styled.h2`
     font-weight: bold;
 `;
@@ -37,7 +36,9 @@ const BalanceCard = () => {
     }, [dalpManager]);
 
     return (
-        <Card title="Your Balance">
+        <React.Fragment>
+            <h5 className="card-title">Your Balance</h5>
+            <Card>
             <div className="card-body text-center">
                 <StyledH2 data-testid="DALP Balance">{amount.toFixed(2)}</StyledH2>
                 <h5>DALP Balance</h5>
@@ -46,6 +47,8 @@ const BalanceCard = () => {
                 <h5>Total Supply</h5>
             </div>
         </Card>
+        </React.Fragment>
+        
     )
 };
 

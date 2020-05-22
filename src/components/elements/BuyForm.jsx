@@ -13,20 +13,19 @@ const BuyForm = () => {
   const [mintAmount, setMintAmount] = useState(0);
 
   const calculateMintAmount = async val => {
-    if (!val || !dalpManager) {
-      setMintAmount(0);
-      return;
+    console.log(isNaN(val), 'isNaN')
+    if (!val || !dalpManager || isNaN(val)) {
+      return setMintAmount(0);
     }
     setCalulating(true);
-    // try {
-    //   const response = await dalpManager.methods.calculateMintAmount(Web3.utils.toWei(val, "ether")).call();
-    //   // const response = await dalpManager.methods.calculateMintAmount(val).call();
-    //   console.log("Calculate Mint Amount:", response);
-    //   // setMintAmount(Web3.utils.fromWei(response, "ether"));
-    //   setMintAmount(response);
-    // } catch(err) {
-    //   console.error(err);
-    // }
+    try {
+      const response = await dalpManager.methods.calculateMintAmount(Web3.utils.toWei(val, "ether")).call();
+      console.log("Calculate Mint Amount:", response);
+      setMintAmount(response);
+      setCalulating(false);
+    } catch(err) {
+      console.error(err);
+    }
   };
 
   useEffect(() => {
@@ -52,6 +51,8 @@ const BuyForm = () => {
         value: amountToSend,
         from: account
       });
+      setSubmitting(false);
+      setAmount("");
       console.log(response);
     } catch(err) {
       console.error(err);
@@ -62,14 +63,18 @@ const BuyForm = () => {
 
   return (
     <Card title="Buy DALP">
-      <div className="card-body text-center">
+      <div className="card-body">
+
+        <p>Mint DALP tokens by staking your ETH. We'll calculate how many DALP tokens you can expect to mint.</p>
+
         <form onSubmit={onSubmit}>
           <input
             onChange={onChange}
             value={amount}
             className="form-control form-control-lg"
-            placeholder="0"
+            placeholder="ETH Amount"
             type="text"
+            disabled={submitting}
           />
           {submitting ? (
             <button
@@ -80,36 +85,25 @@ const BuyForm = () => {
               Investing...
             </button>
           ) : (
-            <button type="submit" className="btn btn-primary btn-block mt-2">
+            <button type="submit" className="btn btn-primary btn-block btn-lg mt-2">
               Invest {amount} ETH
             </button>
           )}
         </form>
-        {
-          calculating && (<BeatLoader />)
-        }
-        {
-            amount && (
-                <ul className="list-group mt-2">
-                    <li className="list-group-item d-flex justify-content-between align-items-center">
-                        
-                    <span className="">
-                        </span>
-                    </li>
-                    <li className="list-group-item d-flex justify-content-between align-items-center">
-                       
-                        <span className="">
-                        </span>
-                    </li>
-                    <li className="list-group-item d-flex justify-content-between align-items-center">
-                        DALP Tokens
-                        <span className="">
-                        {mintAmount}
-                        </span>
-                    </li>
-                </ul>
-            )
-        }
+        <ul className="list-group mt-2">
+          <li className="list-group-item d-flex justify-content-between align-items-center">
+              DALP Tokens
+              {
+                calculating ? (
+                  <BeatLoader size={12} />
+                ) : (
+                  <span>
+                  { mintAmount }
+                  </span>
+                )
+              }
+          </li>
+        </ul>
       </div>
     </Card>
   );

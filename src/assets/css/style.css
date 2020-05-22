@@ -30,13 +30,19 @@ body {
 }
 
 #page {
-  margin-top: 30px;
+  margin-top: 60px;
 }
 
 h3 {
   font-family: 'Barlow', sans-serif;
   font-weight: 700;
 }
+
+h5.card-title {
+  font-family: 'Barlow', sans-serif;
+}
+
+
 
 #hero h1 {
   font-size: 36px;

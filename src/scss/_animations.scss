@@ -1,0 +1,89 @@
+
+.animated { 
+    background-repeat: no-repeat;
+    background-position: left top; 
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s; 
+    -webkit-animation-fill-mode: both; 
+    animation-fill-mode: both; 
+}
+
+@-webkit-keyframes wiggle { 
+    0%, 20%, 50%, 80%, 100% {-webkit-transform: translateX(0);} 
+    40% {-webkit-transform: translateX(-7px);} 
+    60% {-webkit-transform: translateX(-3px);} 
+} 
+
+@keyframes wiggle { 
+    0%, 20%, 50%, 80%, 100% {transform: translateX(0);} 
+    40% {transform: translateX(-7px);} 
+    60% {transform: translateX(-3px);} 
+}
+
+.wiggle { 
+    -webkit-animation-name: wiggle; 
+    animation: wiggle 1s infinite;
+    animation-name: "wiggle"
+}
+
+
+@-webkit-keyframes bounce { 
+    0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);} 
+    40% {-webkit-transform: translateY(-7px);} 
+    60% {-webkit-transform: translateY(-3px);} 
+} 
+
+@keyframes bounce { 
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
+    40% {transform: translateY(-7px);} 
+    60% {transform: translateY(-3px);} 
+}
+
+.bounce { 
+    -webkit-animation-name: bounce; 
+    animation: bounce 1s infinite;
+    animation-name: "bounce"
+}
+
+
+@-webkit-keyframes streamer {
+    from {
+        -webkit-transform: translateY(-100px);
+    }
+    to {
+        -webkit-transform: translateY(150px);
+    }
+}
+
+
+@keyframes streamer {
+    from {
+        transform: translateY(-100px);
+    }
+    to {
+        transform: translateY(150px);
+    }
+}
+
+.streamer {
+    -webkit-animation-name: streamer;
+    animation-name: streamer;
+    animation: streamer 1s infinite;
+}
+
+.flip-card {
+    transition: all .5s; 
+    transform-style: preserve-3d;
+}
+
+.face {
+    border: 1px solid red;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.back, .flipped { 
+    transform: rotateY(-180deg);
+    backface-visibility: hidden;
+}
+

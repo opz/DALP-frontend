@@ -1,4 +1,5 @@
 import { InjectedConnector } from "@web3-react/injected-connector";
+/*
 import { NetworkConnector } from "@web3-react/network-connector";
 import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
 import { WalletLinkConnector } from "@web3-react/walletlink-connector";
@@ -10,12 +11,15 @@ import { FortmaticConnector } from "@web3-react/fortmatic-connector";
 import { PortisConnector } from "@web3-react/portis-connector";
 import { SquarelinkConnector } from "@web3-react/squarelink-connector";
 import { TorusConnector } from "@web3-react/torus-connector";
+*/
 
+/*
 const POLLING_INTERVAL = 12000;
 const RPC_URLS = {
   1: process.env.RPC_URL_1,
   4: process.env.RPC_URL_4
 };
+*/ 
 
 export const injected = new InjectedConnector({ supportedChainIds: [1, 3, 4, 5, 42] });
 

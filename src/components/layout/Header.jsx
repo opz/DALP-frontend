@@ -35,8 +35,6 @@ const Header = ({ match, location }) => {
     try {
       const providerResponse = await web3Modal.connect();
       const web3 = new Web3(providerResponse);
-      console.log(web3.currentProvider);
-      console.log(web3.currentProvider.close);
       const accounts = await web3.eth.getAccounts();
       setProvider(providerResponse);
       setWallet(web3);
@@ -75,10 +73,10 @@ const Header = ({ match, location }) => {
   }
 
   useEffect(() => {
-    console.log(window.web3);
     if (window.web3) {
       connect();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const isDashboard = location.pathname === "/dashboard";

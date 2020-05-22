@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Card } from "../styled";
 import { WalletContext } from "../../providers/wallet";
 import Web3 from "web3";
+import BeatLoader from "react-spinners/BeatLoader";
 
 const BuyForm = () => {
 
@@ -16,20 +17,22 @@ const BuyForm = () => {
       setMintAmount(0);
       return;
     }
-    try {
-      // const response = await dalpManager.methods.calculateMintAmount(Web3.utils.toWei(val, "ether")).call();
-      const response = await dalpManager.methods.calculateMintAmount(val).call();
-      console.log("Calculate Mint Amount:", response);
-      // setMintAmount(Web3.utils.fromWei(response, "ether"));
-      setMintAmount(response);
-    } catch(err) {
-      console.error(err);
-    }
+    setCalulating(true);
+    // try {
+    //   const response = await dalpManager.methods.calculateMintAmount(Web3.utils.toWei(val, "ether")).call();
+    //   // const response = await dalpManager.methods.calculateMintAmount(val).call();
+    //   console.log("Calculate Mint Amount:", response);
+    //   // setMintAmount(Web3.utils.fromWei(response, "ether"));
+    //   setMintAmount(response);
+    // } catch(err) {
+    //   console.error(err);
+    // }
   };
 
   useEffect(() => {
-    console.log("amount changed", amount);
+    //console.log("amount changed", amount);
     calculateMintAmount(amount);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amount]);
 
   const onChange = async ev => {
@@ -82,6 +85,9 @@ const BuyForm = () => {
             </button>
           )}
         </form>
+        {
+          calculating && (<BeatLoader />)
+        }
         {
             amount && (
                 <ul className="list-group mt-2">

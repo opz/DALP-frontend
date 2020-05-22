@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Header from './components/layout/Header';
 import { Home, Dashboard } from "./components/pages";
-import { WalletConsumer } from './providers/wallet';
 
 function App() {
   return (

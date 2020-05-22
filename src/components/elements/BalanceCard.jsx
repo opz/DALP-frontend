@@ -1,30 +1,39 @@
-import React, { useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { Card } from "../styled";
 import { WalletContext } from "../../providers/wallet";
+import Web3 from "web3";
+
 
 const StyledH2 = styled.h2`
     font-weight: bold;
 `;
 
-const BalanceCard = ({ amount, supply }) => {
+const BalanceCard = () => {
 
-    const { dalpManager } = useContext(WalletContext);
+    const [amount, setAmount] = useState(0);
+    const [supply, setSupply] = useState(0);
+
+    const { dalpManager, dalpToken, account } = useContext(WalletContext);
 
     async function load() {
         try {
-            const response = await dalpManager.methods.dalp().call();
-            console.log(response);
+            const response = await dalpToken.methods.balanceOf(account).call();
+            console.log("balanceOf Wei:", response);
+            console.log("balanceOf fromWei:", Web3.utils.fromWei(response, "ether"));
+            setAmount(parseFloat(Web3.utils.fromWei(response, "ether")));
+            setSupply(0);
         } catch(err) {
             console.error(err);
         }
     }
 
     useEffect(() => {
-        if (dalpManager) {
+        if (account) {
             // console.log(dalpManager);
-            // load();
+            load();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dalpManager]);
 
     return (
@@ -38,11 +47,6 @@ const BalanceCard = ({ amount, supply }) => {
             </div>
         </Card>
     )
-};
-
-BalanceCard.defaultProps = {
-    amount: 0,
-    supply: 0
 };
 
 export default BalanceCard;

@@ -21,7 +21,7 @@ const Home = () => (
           <img alt="Pool Graphic" src={hero} className="w-100" />
         </div>
       </section>
-      <section className="row">
+      <section id="pools" className="row">
         <div className="col-md-12 text-center">
           <h3 className="section-header">
             We integrate with leading liquidity pools.

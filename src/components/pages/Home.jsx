@@ -5,7 +5,7 @@ import compound from "../../assets/images/compound.png";
 import bancor from "../../assets/images/bancor.png";
 import hero from "../../assets/images/hero-img.jpg";
 
-const Home = ({}) => (
+const Home = () => (
   <div id="page">
     <div className="container">
       <section id="hero" className="row">
@@ -18,10 +18,10 @@ const Home = ({}) => (
           </h4>
         </div>
         <div className="col-md-6 offset-md-1">
-          <img src={hero} className="w-100" />
+          <img alt="Pool Graphic" src={hero} className="w-100" />
         </div>
       </section>
-      <section className="row">
+      <section id="pools" className="row">
         <div className="col-md-12 text-center">
           <h3 className="section-header">
             We integrate with leading liquidity pools.
@@ -29,16 +29,16 @@ const Home = ({}) => (
         </div>
         <div className="row d-flex align-items-center mt-4 text-center">
           <div className="col-md-3">
-            <img src={uniswap} className="logo-img" />
+            <img src={uniswap} alt="Uniswap" className="logo-img" />
           </div>
           <div className="col-md-3">
-            <img src={compound} className="logo-img" />
+            <img src={compound} alt="Compound" className="logo-img" />
           </div>
           <div className="col-md-3">
-            <img src={bancor} className="logo-img" />
+            <img src={bancor} alt="Bancor" className="logo-img" />
           </div>
           <div className="col-md-3">
-            <img src={balancer} className="logo-img" />
+            <img src={balancer} alt="Balancer" className="logo-img" />
           </div>
         </div>
       </section>

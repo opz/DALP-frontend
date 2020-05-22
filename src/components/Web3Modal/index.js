@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useWeb3React } from "@web3-react/core";
-import { MetaMaskButton, EthAddress } from "rimble-ui";
-import * as align from "../../Constants/alignments";
+import { MetaMaskButton } from "rimble-ui";
 import cn from "classnames";
 
+import * as align from "../../Constants/alignments";
 import { useEagerConnect, useInactiveListener } from "../../hooks";
 import { injected } from "../../connectors";
-import Loader from "../Loader";
 import { Spinner } from "../elements/Spinner";
 
 const connectorsByName = { "Injected": injected }
 
 export default function Web3Modal() {
   const context = useWeb3React();
-  const { connector, library, chainId, account, activate, deactivate, active, error } = context;
+  const { connector, activate, deactivate, active, error } = context;
 
   const [activatingConnector, setActivatingConnector] = React.useState()
 

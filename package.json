@@ -8,14 +8,10 @@
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
-<<<<<<< HEAD
-    "react": "^16.13.1",
-=======
     "dalp-core": "../DALP-core",
     "moment": "^2.26.0",
     "react": "^16.13.1",
     "react-anchor-link-smooth-scroll": "^1.0.12",
->>>>>>> fd1a746d835505ab69b3c914ae370fe64d6cf604
     "react-chartjs-2": "^2.9.0",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",

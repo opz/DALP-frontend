@@ -7,7 +7,7 @@ import iconWhite from "../../assets/images/icon-white.png";
 import iconBlue from "../../assets/images/icon-blue.png";
 // import { MetaMaskButton } from "rimble-ui";
 
-import Web3ModalNew from "../Web3ModalNew";
+import Web3Modal from "../Web3Modal";
 
 // const providerOptions = {};
 
@@ -84,9 +84,7 @@ const Header = ({ match, location }) => {
               </NavLink>
             </li>
           </ul>
-          <form>
-            <Web3ModalNew />
-          </form>
+          <Web3Modal />
         </div>
       </div>
     </nav>

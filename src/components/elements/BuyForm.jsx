@@ -1,24 +1,63 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Card } from "../styled";
+import { WalletContext } from "../../providers/wallet";
+import Web3 from "web3";
+import BeatLoader from "react-spinners/BeatLoader";
 
 const BuyForm = () => {
-  const FAKE_INT = 1.3;
+
+  const { account, dalpManager } = useContext(WalletContext);
   const [amount, setAmount] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [calculating, setCalulating] = useState(false);
+  const [mintAmount, setMintAmount] = useState(0);
+
+  const calculateMintAmount = async val => {
+    if (!val || !dalpManager) {
+      setMintAmount(0);
+      return;
+    }
+    setCalulating(true);
+    // try {
+    //   const response = await dalpManager.methods.calculateMintAmount(Web3.utils.toWei(val, "ether")).call();
+    //   // const response = await dalpManager.methods.calculateMintAmount(val).call();
+    //   console.log("Calculate Mint Amount:", response);
+    //   // setMintAmount(Web3.utils.fromWei(response, "ether"));
+    //   setMintAmount(response);
+    // } catch(err) {
+    //   console.error(err);
+    // }
+  };
 
   useEffect(() => {
-    console.log("amount changed", amount);
+    //console.log("amount changed", amount);
+    calculateMintAmount(amount);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amount]);
 
-  const onChange = ev => {
-    console.log(ev.target.value);
+  const onChange = async ev => {
     setAmount(ev.target.value);
   };
 
-  const onSubmit = ev => {
+  const onSubmit = async ev => {
     ev.preventDefault();
     setSubmitting(true);
-    console.log("submit", amount);
+
+    const amountToSend = Web3.utils.toWei(amount, "ether");
+    console.log("Wei", amountToSend);
+    console.log("From", account);
+
+    try {
+      const response = await dalpManager.methods.mint().send({
+        value: amountToSend,
+        from: account
+      });
+      console.log(response);
+    } catch(err) {
+      console.error(err);
+
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -30,8 +69,7 @@ const BuyForm = () => {
             value={amount}
             className="form-control form-control-lg"
             placeholder="0"
-            type="number"
-            min="0"
+            type="text"
           />
           {submitting ? (
             <button
@@ -48,6 +86,9 @@ const BuyForm = () => {
           )}
         </form>
         {
+          calculating && (<BeatLoader />)
+        }
+        {
             amount && (
                 <ul className="list-group mt-2">
                     <li className="list-group-item d-flex justify-content-between align-items-center">
@@ -63,7 +104,7 @@ const BuyForm = () => {
                     <li className="list-group-item d-flex justify-content-between align-items-center">
                         DALP Tokens
                         <span className="">
-                        {amount * FAKE_INT}
+                        {mintAmount}
                         </span>
                     </li>
                 </ul>

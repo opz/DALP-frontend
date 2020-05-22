@@ -2,27 +2,22 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import Web3Provider from "web3-react";
-import { Connectors } from "web3-react";
-import Web3 from "web3";
+import { Web3ReactProvider } from "@web3-react/core";
+import { Web3Provider } from "@ethersproject/providers";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/style.css";
 
-const { InjectedConnector, NetworkOnlyConnector } = Connectors;
-
-// Update provider URL
-const MetaMask = new InjectedConnector();
-const Infura = new NetworkOnlyConnector({
-  providerURL: "https://mainnet.infura.io/v3/e8d0916e2d8f4a57b5dd4545bd33b982",
-});
-
-const connectors = { MetaMask, Infura };
+function getLibrary(provider) {
+  const library = new Web3Provider(provider);
+  library.pollingInterval = 12000;
+  return library;
+}
 
 ReactDOM.render(
-  <Web3Provider connectors={connectors} libraryName="web3.js" web3Api={Web3}>
+  <Web3ReactProvider getLibrary={getLibrary}>
     <App />
-  </Web3Provider>,
+  </Web3ReactProvider>,
   document.getElementById("root")
 );
 

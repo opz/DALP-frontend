@@ -94,7 +94,19 @@ const BuyForm = () => {
       <ul className="list-group mt-2">
         <li className="list-group-item d-flex justify-content-between align-items-center">
           DALP Tokens
-          {calculating ? <BeatLoader size={12} /> : <span>{mintAmount}</span>}
+          {
+            calculating
+              ? <BeatLoader size={12} />
+              : <span>
+                {
+                  Number(
+                    Web3.utils.fromWei(
+                      mintAmount.toString()
+                    )
+                  ).toLocaleString()
+                }
+                </span>
+          }
         </li>
       </ul>
     </React.Fragment>

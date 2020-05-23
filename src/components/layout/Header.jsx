@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, NavLink, withRouter } from "react-router-dom";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import iconWhite from "../../assets/images/icon-white.png";
@@ -7,14 +7,6 @@ import ConnectButton from "../elements/ConnectButton";
 import DemoSwitch from "../elements/DemoSwitch";
 
 const Header = ({ location, history }) => {
-
-  // useEffect(() => {
-  //   if (window.web3) {
-  //     // connect();
-      
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
 
   const isDashboard = location.pathname === "/dashboard";
 

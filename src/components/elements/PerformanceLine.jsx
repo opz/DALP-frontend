@@ -4,7 +4,7 @@ import { DataContext } from "../../providers/data";
 import { Line } from 'react-chartjs-2';
 import moment from "moment";
 
-const PerformanceLine = ({ }) => {
+const PerformanceLine = () => {
 
     const { demo, data } = useContext(DataContext);
     const emptyArr = Array.apply(null, Array(30));

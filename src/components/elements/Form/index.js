@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
-// import { Card } from "../styled";
+import React, { useState } from "react";
 import {
   TabContent,
   TabPane,
@@ -7,14 +6,8 @@ import {
   NavItem,
   NavLink,
   Card,
-  Button,
-  CardTitle,
-  CardText,
-  Row,
-  Col,
 } from "reactstrap";
 import cn from "classnames";
-import * as align from "../../../Constants/alignments";
 
 import BuyForm from "./BuyForm";
 import RedeemForm from "./RedeemForm";

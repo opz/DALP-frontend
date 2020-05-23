@@ -31,7 +31,6 @@ const BalanceCard = () => {
 
   useEffect(() => {
     if (account) {
-      // console.log(dalpManager);
       load();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

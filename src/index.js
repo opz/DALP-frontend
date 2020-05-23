@@ -1,24 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
 import { WalletProvider } from "./providers/wallet";
-import * as serviceWorker from './serviceWorker';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './assets/css/style.css';
-import { DataProvider } from './providers/data';
+import * as serviceWorker from "./serviceWorker";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./assets/css/style.css";
+import "./scss/style.scss";
+import { DataProvider } from "./providers/data";
 
 ReactDOM.render(
   <React.StrictMode>
     <WalletProvider>
       <DataProvider>
-
-      
-      <App />
+        <App />
       </DataProvider>
     </WalletProvider>
-    
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

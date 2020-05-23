@@ -1,0 +1,33 @@
+.form-actions-tab {
+  min-width: 50%;
+  transition: 0.3s all linear;
+  &:hover {
+    background: #004ad7 !important;
+    transition: 0.3s all linear;
+    .form-actions-navlink {
+      color: white !important;
+      background: #004ad7 !important;
+      transition: 0.3s all linear;
+    }
+  }
+}
+
+.form-actions-navlink {
+  font-family: "Sofia Pro" !important;
+  transition: 0.3s all linear;
+  border: none !important;
+  //   &:hover {
+  //     background: #004ad7 !important;
+  //     color: white !important;
+  //     transition: 0.3s all linear;
+  //     .form-actions-tab {
+  //       background: #004ad7 !important;
+  //       transition: 0.3s all linear;
+  //     }
+  //   }
+  //   &:active {
+  //     background: #004ad7 !important;
+  //     color: white;
+  //     transition: 0.3s all linear;
+  //   }
+}

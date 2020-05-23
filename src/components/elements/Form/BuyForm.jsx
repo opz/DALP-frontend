@@ -12,7 +12,6 @@ const BuyForm = () => {
   const [mintAmount, setMintAmount] = useState(0);
 
   const calculateMintAmount = async (val) => {
-    console.log(isNaN(val), "isNaN");
     if (!val || !dalpManager || isNaN(val)) {
       return setMintAmount(0);
     }
@@ -21,7 +20,6 @@ const BuyForm = () => {
       const response = await dalpManager.methods
         .calculateMintAmount(Web3.utils.toWei(val, "ether"))
         .call();
-      console.log("Calculate Mint Amount:", response);
       setMintAmount(response);
       setCalulating(false);
     } catch (err) {
@@ -30,7 +28,6 @@ const BuyForm = () => {
   };
 
   useEffect(() => {
-    //console.log("amount changed", amount);
     calculateMintAmount(amount);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amount]);
@@ -44,17 +41,14 @@ const BuyForm = () => {
     setSubmitting(true);
 
     const amountToSend = Web3.utils.toWei(amount, "ether");
-    console.log("Wei", amountToSend);
-    console.log("From", account);
 
     try {
-      const response = await dalpManager.methods.mint().send({
+      await dalpManager.methods.mint().send({
         value: amountToSend,
         from: account,
       });
       setSubmitting(false);
       setAmount("");
-      console.log(response);
     } catch (err) {
       console.error(err);
 
@@ -100,12 +94,22 @@ const BuyForm = () => {
       <ul className="list-group mt-2">
         <li className="list-group-item d-flex justify-content-between align-items-center">
           DALP Tokens
-          {calculating ? <BeatLoader size={12} /> : <span>{mintAmount}</span>}
+          {
+            calculating
+              ? <BeatLoader size={12} />
+              : <span>
+                {
+                  Number(
+                    Web3.utils.fromWei(
+                      mintAmount.toString()
+                    )
+                  ).toLocaleString()
+                }
+                </span>
+          }
         </li>
       </ul>
     </React.Fragment>
-
-    // {/* </div> </Card> */}
   );
 };
 

@@ -19,11 +19,10 @@ const BalanceCard = () => {
 
   async function load() {
     try {
-      const response = await dalpToken.methods.balanceOf(account).call();
-      console.log("balanceOf Wei:", response);
-      console.log("balanceOf fromWei:", Web3.utils.fromWei(response, "ether"));
-      setAmount(parseFloat(Web3.utils.fromWei(response, "ether")));
-      setSupply(0);
+      const balance = await dalpToken.methods.balanceOf(account).call();
+      setAmount(parseFloat(Web3.utils.fromWei(balance)));
+      const supply = await dalpToken.methods.totalSupply().call();
+      setSupply(parseFloat(Web3.utils.fromWei(supply)));
     } catch (err) {
       console.error(err);
     }
@@ -31,7 +30,6 @@ const BalanceCard = () => {
 
   useEffect(() => {
     if (account) {
-      // console.log(dalpManager);
       load();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -40,13 +38,11 @@ const BalanceCard = () => {
   const balanceInt = demo ? data.balance : amount.toFixed(2);
   const supplyInt = demo ? data.supply : supply.toFixed(2);
 
-  console.log(balanceInt);
-
   const pieData = {
     labels: ["Total Supply", "Your Balance"],
     datasets: [
       {
-        data: [supplyInt, balanceInt],
+        data: [supplyInt - balanceInt, balanceInt],
         backgroundColor: ["rgba(0, 74, 215, .8)", "rgba(0, 74, 215, 1)"]
       }
     ]

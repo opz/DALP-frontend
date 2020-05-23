@@ -1,9 +1,9 @@
-import React, { Fragment, useContext } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Switch from "react-switch";
 import { DataContext } from "../../providers/data";
 
-const StyledFragment = styled(Fragment)`
+const StyledDiv = styled.div`
     display: flex;
     align-items: center;
 `;
@@ -14,27 +14,19 @@ margin-right: 10px;
 font-size: 14px;
 `;
 
-/*
-color: white;
-font-size: 10px;
-margin-left: 5px;
-text-align: center;
-margin-top: 6px;
-*/
-
 const StyledSwitch = styled(Switch)`
     margin-right: 10px;
 `;
 
-const DemoSwitch = ({ }) => {
+const DemoSwitch = () => {
 
     const { demo, setDemo } = useContext(DataContext);
 
     return (
-        <StyledFragment>
+        <StyledDiv>
            <StyledSpan> Demo Data:</StyledSpan>
            <StyledSwitch onChange={setDemo} checked={demo} />
-        </StyledFragment>
+        </StyledDiv>
     )
 
 };

@@ -14,7 +14,7 @@ const StyledRow = styled.div`
   }
 `;
 
-const PoolAllocation = ({ }) => {
+const PoolAllocation = () => {
 
     const { demo, data } = useContext(DataContext);
 
@@ -39,7 +39,7 @@ const PoolAllocation = ({ }) => {
               <div className="card-body">
               {
                 pools.map(pool => (
-                  <StyledRow className="row">
+                  <StyledRow key={pool.name} className="row">
                     <div className="col-md-12 d-flex align-items-center justify-content-between">
                       <h2>{pool.name}</h2>
                       <h3>{pool.allocation}%</h3>

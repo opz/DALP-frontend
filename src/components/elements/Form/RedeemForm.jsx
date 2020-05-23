@@ -12,7 +12,6 @@ const RedeemForm = () => {
   const [mintAmount, setMintAmount] = useState(0);
 
   const calculateMintAmount = async (val) => {
-    console.log(isNaN(val), "isNaN");
     if (!val || !dalpManager || isNaN(val)) {
       return setMintAmount(0);
     }

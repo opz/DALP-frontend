@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Switch from "react-switch";
 import { DataContext } from "../../providers/data";

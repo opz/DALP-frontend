@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-// import { Card } from "../../styled";
 import { WalletContext } from "../../../providers/wallet";
 import Web3 from "web3";
 import BeatLoader from "react-spinners/BeatLoader";

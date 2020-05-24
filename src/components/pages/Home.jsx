@@ -40,21 +40,18 @@ const Home = () => (
       <section id="pools" className="row">
         <div className="col-md-12 text-center">
           <h3 className="section-header">
-            We integrate with leading liquidity pools.
+            We integrate with leading automated market maker exchanges.
           </h3>
         </div>
         <div className="row d-flex align-items-center mt-4 text-center">
-          <div className="col-md-3">
+          <div className="col-md-4">
+            <img src={balancer} alt="Balancer" className="logo-img" />
+          </div>
+          <div className="col-md-4">
             <img src={uniswap} alt="Uniswap" className="logo-img" />
           </div>
-          <div className="col-md-3">
-            <img src={compound} alt="Compound" className="logo-img" />
-          </div>
-          <div className="col-md-3">
+          <div className="col-md-4">
             <img src={bancor} alt="Bancor" className="logo-img" />
-          </div>
-          <div className="col-md-3">
-            <img src={balancer} alt="Balancer" className="logo-img" />
           </div>
         </div>
       </section>

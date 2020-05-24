@@ -39,7 +39,6 @@ const PerformanceLine = () => {
         const emptyArr = Array.apply(null, Array(duration.span));
 
         const labels = emptyArr.map((val, idx) => {
-            console.log(duration.interval * idx, duration.intervalType);
             return moment().subtract(duration.interval * idx, duration.intervalType).format(duration.dateFormat).toUpperCase();
         }).reverse();
 

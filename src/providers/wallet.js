@@ -38,10 +38,17 @@ const WalletProvider = props => {
   }
 
   useEffect(() => {
-    if (DALPManager) {
-      console.log(DALPManager.methods);
+    if (dalpManager) {
+      dalpManager.getPastEvents('LiquidityEvent', {
+        fromBlock: "earliest",
+        toBlock: "latest"
+      }).then(results => {
+        results.map(result => {
+          console.log(result.returnValues);
+        });
+      });
     }
-  }, [DALPManager]);
+  }, [dalpManager]);
 
   useEffect(() => {
     if (account) {

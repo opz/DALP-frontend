@@ -24,7 +24,7 @@ const Home = () => (
       <section id="pools" className="row">
         <div className="col-md-12 text-center">
           <h3 className="section-header">
-            We integrate with leading liquidity pools.
+            We integrate with leading automated market maker exchanges.
           </h3>
         </div>
         <div className="row d-flex align-items-center mt-4 text-center">

@@ -38,6 +38,12 @@ const WalletProvider = props => {
   }
 
   useEffect(() => {
+    if (DALPManager) {
+      console.log(DALPManager.methods);
+    }
+  }, [DALPManager]);
+
+  useEffect(() => {
     if (account) {
       loadBalance();
     }

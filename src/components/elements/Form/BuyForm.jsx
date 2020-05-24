@@ -114,7 +114,7 @@ const BuyForm = () => {
         </li>
       </ul>
       {success && (
-          <div class="alert alert-success mt-2 text-center mb-0" role="alert">
+          <div className="alert alert-success mt-2 text-center mb-0" role="alert">
             {success}
           </div>
         )}

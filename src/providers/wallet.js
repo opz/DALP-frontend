@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DALPManager from "dalp-core/artifacts/DALPManager.json";
 import DALP from "dalp-core/artifacts/DALP.json";
+import Web3 from "web3";
 import { DALPManagerAddress, DALPAddress } from "dalp-core/artifacts/kovan.json";
 
 const WalletContext = React.createContext();
@@ -11,6 +12,8 @@ const WalletProvider = props => {
   const [account, setAccount] = useState('');
   const [dalpManager, setDalpManager] = useState(null);
   const [dalpToken, setDalpToken] = useState(null);
+  const [balance, setBalance] = useState(0);
+  const [supply, setSupply] = useState(0);
 
   async function loadAccount() {
     try {
@@ -20,6 +23,28 @@ const WalletProvider = props => {
       console.error(err);
     }
   }
+
+  async function loadBalance() {
+
+    console.log("loadBalance...");
+
+    try {
+      const balanceResponse = await dalpToken.methods.balanceOf(account).call();
+      setBalance(parseFloat(Web3.utils.fromWei(balanceResponse)));
+      const supply = await dalpToken.methods.totalSupply().call();
+      setSupply(parseFloat(Web3.utils.fromWei(supply)));
+    } catch (err) {
+      console.error(err);
+    }
+
+  }
+
+  useEffect(() => {
+    if (account) {
+      loadBalance();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [account]);
 
   useEffect(() => {
     if (wallet) {
@@ -31,7 +56,7 @@ const WalletProvider = props => {
 }, [wallet]);
 
   return (
-    <WalletContext.Provider value={{ wallet, setWallet, dalpManager, dalpToken, account }}>
+    <WalletContext.Provider value={{ wallet, setWallet, dalpManager, dalpToken, account, balance, supply, loadBalance }}>
       {props.children}
     </WalletContext.Provider>
   );

@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { Card } from "../styled";
 import { WalletContext } from "../../providers/wallet";
 import { DataContext } from "../../providers/data";
-import Web3 from "web3";
 import { Doughnut } from "react-chartjs-2";
 
 const StyledH2 = styled.h2`
@@ -12,30 +11,12 @@ const StyledH2 = styled.h2`
 
 const BalanceCard = () => {
   const { demo, data } = useContext(DataContext);
-  const [amount, setAmount] = useState(0);
-  const [supply, setSupply] = useState(0);
 
-  const { dalpManager, dalpToken, account } = useContext(WalletContext);
+  const { balance, supply } = useContext(WalletContext);
 
-  async function load() {
-    try {
-      const balance = await dalpToken.methods.balanceOf(account).call();
-      setAmount(parseFloat(Web3.utils.fromWei(balance)));
-      const supply = await dalpToken.methods.totalSupply().call();
-      setSupply(parseFloat(Web3.utils.fromWei(supply)));
-    } catch (err) {
-      console.error(err);
-    }
-  }
+  console.log(balance, supply);
 
-  useEffect(() => {
-    if (account) {
-      load();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dalpManager]);
-
-  const balanceInt = demo ? data.balance : amount.toFixed(2);
+  const balanceInt = demo ? data.balance : balance.toFixed(2);
   const supplyInt = demo ? data.supply : supply.toFixed(2);
 
   const pieData = {
@@ -54,12 +35,12 @@ const BalanceCard = () => {
       <Card>
         <div className="card-body text-center">
           <StyledH2 data-testid="DALP Balance">
-            {demo ? data.balance : amount.toFixed(2)}
+            {balanceInt}
           </StyledH2>
           <h5>DALP Balance</h5>
           <hr />
           <h3 data-testid="Total Supply">
-            {demo ? data.supply : supply.toFixed(2)}
+            {supplyInt}
           </h3>
           <h5>Total Supply</h5>
 

@@ -14,8 +14,6 @@ const BalanceCard = () => {
 
   const { balance, supply } = useContext(WalletContext);
 
-  console.log(balance, supply);
-
   const balanceInt = demo ? data.balance : balance.toFixed(2);
   const supplyInt = demo ? data.supply : supply.toFixed(2);
 

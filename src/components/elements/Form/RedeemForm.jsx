@@ -5,7 +5,7 @@ import Web3 from "web3";
 import BeatLoader from "react-spinners/BeatLoader";
 
 const RedeemForm = () => {
-  const { account, dalpManager } = useContext(WalletContext);
+  const { account, dalpToken, dalpManager } = useContext(WalletContext);
   const [amount, setAmount] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [calculating, setCalulating] = useState(false);
@@ -30,7 +30,7 @@ const RedeemForm = () => {
 
   useEffect(() => {
     //console.log("amount changed", amount);
-    calculateMintAmount(amount);
+    //calculateMintAmount(amount);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amount]);
 
@@ -43,17 +43,14 @@ const RedeemForm = () => {
     setSubmitting(true);
 
     const amountToSend = Web3.utils.toWei(amount, "ether");
-    console.log("Wei", amountToSend);
-    console.log("From", account);
 
     try {
-      const response = await dalpManager.methods.mint().send({
-        value: amountToSend,
-        from: account,
+      await dalpToken.methods.approve(dalpManager.options.address, amountToSend);
+      await dalpManager.methods.redeem(amountToSend).send({
+        from: account
       });
       setSubmitting(false);
       setAmount("");
-      console.log(response);
     } catch (err) {
       console.error(err);
 
@@ -66,7 +63,7 @@ const RedeemForm = () => {
     //   <div className="card-body">
     <React.Fragment>
       <p>
-        Redeem ETH tokens by selling DALP. We'll calculate how much you can
+        Redeem ETH by selling DALP. We'll calculate how much you can
         expect to make.
       </p>
 

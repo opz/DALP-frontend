@@ -5,23 +5,22 @@ import Web3 from "web3";
 import BeatLoader from "react-spinners/BeatLoader";
 
 const RedeemForm = () => {
-  const { account, dalpManager } = useContext(WalletContext);
+  const { account, dalpToken, dalpManager } = useContext(WalletContext);
   const [amount, setAmount] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [calculating, setCalulating] = useState(false);
-  const [mintAmount, setMintAmount] = useState(0);
+  const [redeemAmount, setRedeemAmount] = useState(0);
 
-  const calculateMintAmount = async (val) => {
+  const calculateRedeemAmount = async (val) => {
     if (!val || !dalpManager || isNaN(val)) {
-      return setMintAmount(0);
+      return setRedeemAmount(0);
     }
     setCalulating(true);
     try {
       const response = await dalpManager.methods
-        .calculateMintAmount(Web3.utils.toWei(val, "ether"))
+        .getDALPValue(Web3.utils.toWei(val, "ether"))
         .call();
-      console.log("Calculate Mint Amount:", response);
-      setMintAmount(response);
+      setRedeemAmount(response);
       setCalulating(false);
     } catch (err) {
       console.error(err);
@@ -29,8 +28,7 @@ const RedeemForm = () => {
   };
 
   useEffect(() => {
-    //console.log("amount changed", amount);
-    calculateMintAmount(amount);
+    calculateRedeemAmount(amount);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amount]);
 
@@ -43,20 +41,16 @@ const RedeemForm = () => {
     setSubmitting(true);
 
     const amountToSend = Web3.utils.toWei(amount, "ether");
-    console.log("Wei", amountToSend);
-    console.log("From", account);
 
     try {
-      const response = await dalpManager.methods.mint().send({
-        value: amountToSend,
-        from: account,
+      await dalpToken.methods.approve(dalpManager.options.address, amountToSend);
+      await dalpManager.methods.redeem(amountToSend).send({
+        from: account
       });
       setSubmitting(false);
       setAmount("");
-      console.log(response);
     } catch (err) {
       console.error(err);
-
       setSubmitting(false);
     }
   };
@@ -66,7 +60,7 @@ const RedeemForm = () => {
     //   <div className="card-body">
     <React.Fragment>
       <p>
-        Redeem ETH tokens by selling DALP. We'll calculate how much you can
+        Redeem ETH by selling DALP. We'll calculate how much you can
         expect to make.
       </p>
 
@@ -98,8 +92,20 @@ const RedeemForm = () => {
       </form>
       <ul className="list-group mt-2">
         <li className="list-group-item d-flex justify-content-between align-items-center">
-          DALP Tokens
-          {calculating ? <BeatLoader size={12} /> : <span>{mintAmount}</span>}
+          ETH
+          {
+            calculating
+              ? <BeatLoader size={12} />
+              : <span>
+                {
+                  Number(
+                    Web3.utils.fromWei(
+                      redeemAmount.toString()
+                    )
+                  ).toLocaleString()
+                }
+                </span>
+          }
         </li>
       </ul>
     </React.Fragment>

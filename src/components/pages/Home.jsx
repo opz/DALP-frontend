@@ -4,6 +4,7 @@ import {
   noMarginPad,
   topCenter,
   allCenter,
+  leftCenter,
   full,
 } from "../../Constants/alignments";
 import cn from "classnames";
@@ -14,7 +15,7 @@ import uniswap from "../../assets/images/uniswap.png";
 import balancer from "../../assets/images/balancer.png";
 import compound from "../../assets/images/compound.png";
 import bancor from "../../assets/images/bancor.png";
-// import hero from "../../assets/images/hero-img.jpg";
+import github from "../../assets/images/github-logo.svg";
 import hero from "../../assets/images/hero-img-2.png";
 
 const Home = () => (
@@ -28,6 +29,38 @@ const Home = () => (
             you the highest fees. Simply swap your ETH for DALP tokens, and
             start earning interest.
           </h4>
+          <div className={cn(full, allCenter, noMarginPad)}>
+            <Row className={cn(full, "mt-2", noMarginPad, leftCenter)}>
+              <Col xs="6" className={cn(allCenter, noMarginPad)}>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/opz/DALP-core"
+                >
+                  <button className={cn("hero-github-btn")}>
+                    <span className={cn("fa fa-github")}>
+                      <img src={github} alt="" className={cn("github-logo")} />
+                    </span>{" "}
+                    See Contracts
+                  </button>
+                </a>
+              </Col>
+              <Col xs="6" className={cn(allCenter, noMarginPad)}>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/opz/DALP-frontend"
+                >
+                  <button className={cn("hero-github-btn")}>
+                    <span className={cn("fa fa-github")}>
+                      <img src={github} alt="" className={cn("github-logo")} />
+                    </span>{" "}
+                    See Frontend
+                  </button>
+                </a>
+              </Col>
+            </Row>
+          </div>
         </div>
         <div className="col-md-6 offset-md-1">
           <img
@@ -37,7 +70,7 @@ const Home = () => (
           />
         </div>
       </section>
-      <section id="pools" className="row">
+      <section id="pools" className="row mb-0">
         <div className="col-md-12 text-center">
           <h3 className="section-header">
             We integrate with leading automated market maker exchanges.
@@ -57,8 +90,22 @@ const Home = () => (
       </section>
     </div>
     <section id="features" className="row bg-gray">
+      <Row className={cn(full, noMarginPad, allCenter)}>
+        <Col
+          xs="12"
+          md="10"
+          lg="8"
+          className={cn(allCenter, "mb-5", noMarginPad)}
+        >
+          <div className={cn(full, allCenter, noMarginPad)}>
+            <a target="_blank" rel="noopener noreferrer" href="/dashboard">
+              <button className={cn("get-started-btn")}>Get Started</button>
+            </a>
+          </div>
+        </Col>
+      </Row>
       <div className="container">
-        <Row className={cn(full, noMarginPad, allCenter)}>
+        <Row className={cn(full, "mt-3", noMarginPad, allCenter)}>
           <Col xs="12" lg="10" className={cn(topCenter, noMarginPad)}>
             <h2>DALP Features</h2>
             <h3 className="section-header">

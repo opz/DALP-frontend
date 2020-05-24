@@ -26,8 +26,6 @@ const WalletProvider = props => {
 
   async function loadBalance() {
 
-    console.log("loadBalance...");
-
     try {
       const balanceResponse = await dalpToken.methods.balanceOf(account).call();
       setBalance(parseFloat(Web3.utils.fromWei(balanceResponse)));

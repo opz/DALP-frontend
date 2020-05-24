@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import uniswap from "../../assets/images/uniswap.png";
 import balancer from "../../assets/images/balancer.png";
 import compound from "../../assets/images/compound.png";
@@ -43,8 +43,20 @@ const Home = () => (
         </div>
       </section>
     </div>
-    <section className="row bg-gray">
-    <div className="container"></div>
+    <section id="features" className="row bg-gray">
+    <div className="container">
+      <div className="col-md-12 text-center">
+          <h2>DALP Features</h2>
+          <h3 className="section-header">
+            See how DALP works to help earn you the highest returns.
+          </h3>
+        </div>
+        <div className="col-md-8">
+
+        </div>
+        <div className="col-md-4">
+        </div>
+    </div>
     </section>
     <div className="container"></div>
     <section className="row bg-blue">

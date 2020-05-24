@@ -5,17 +5,19 @@ import Web3 from "web3";
 import BeatLoader from "react-spinners/BeatLoader";
 
 const BuyForm = () => {
-  const { account, dalpManager } = useContext(WalletContext);
+  const { account, dalpManager, loadBalance } = useContext(WalletContext);
   const [amount, setAmount] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [calculating, setCalulating] = useState(false);
   const [mintAmount, setMintAmount] = useState(0);
+  const [success, setSuccess] = useState("");
 
   const calculateMintAmount = async (val) => {
     if (!val || !dalpManager || isNaN(val)) {
       return setMintAmount(0);
     }
     setCalulating(true);
+    setSuccess("");
     try {
       const response = await dalpManager.methods
         .calculateMintAmount(Web3.utils.toWei(val, "ether"))
@@ -49,6 +51,8 @@ const BuyForm = () => {
       });
       setSubmitting(false);
       setAmount("");
+      setSuccess("Your transaction was successful!");
+      loadBalance();
     } catch (err) {
       console.error(err);
 
@@ -77,7 +81,7 @@ const BuyForm = () => {
         {submitting ? (
           <button
             type="button"
-            className="btn btn-primary btn-block mt-2"
+            className="btn btn-primary btn-block btn-lg mt-2"
             disabled
           >
             Investing...
@@ -109,6 +113,11 @@ const BuyForm = () => {
           }
         </li>
       </ul>
+      {success && (
+          <div class="alert alert-success mt-2 text-center mb-0" role="alert">
+            {success}
+          </div>
+        )}
     </React.Fragment>
   );
 };

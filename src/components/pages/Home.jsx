@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import uniswap from "../../assets/images/uniswap.png";
 import balancer from "../../assets/images/balancer.png";
 import compound from "../../assets/images/compound.png";

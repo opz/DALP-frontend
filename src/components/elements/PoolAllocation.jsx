@@ -150,15 +150,24 @@ const PoolAllocation = () => {
                   <div className="col-md-12 text-center">
                     <h5 className="mb-3">Upcoming Allocation</h5>
                   </div>
-                  <div className="col-md-6 text-center">
-                    <TokenIcon src={icons.DAI} size="36px" />
-                    <h3 className="upcoming-token">DAI</h3>
-                  </div>
-                  <div className="col-md-6 text-center">
-                    <TokenIcon src={icons.ETH} size="36px" />
-                    <h3 className="upcoming-token">ETH</h3>
-                  </div>
+                  
                 </div>
+                <div className="d-flex justify-space-between" style={{
+                  'justifyContent': 'space-around',
+                  'alignItems': 'center'
+                }}>
+                    <div className="text-center">
+                      <TokenIcon src={icons.DAI} size="36px" />
+                      <h3 className="upcoming-token">DAI</h3>
+                    </div>
+                    <div className="text-center">
+                      <img src={icons.uniswap} width="24px" />
+                    </div>
+                    <div className="text-center">
+                      <TokenIcon src={icons.ETH} size="36px" />
+                      <h3 className="upcoming-token">ETH</h3>
+                    </div>
+                  </div>
               </div>
             </div>
           )}

@@ -8,7 +8,6 @@ import PerformanceLine from "../elements/PerformanceLine";
 
 const Dashboard = () => {
   const { account } = useContext(WalletContext);
-
   return (
     <div id="page">
       <div className="container">

@@ -45,7 +45,6 @@ const BalanceCard = () => {
             <h5>Total Supply</h5>
             </div>
             <div className="col-md-6">
-            {balanceInt !== "0.00" && (
             <Doughnut
               data={pieData}
               options={{
@@ -54,7 +53,6 @@ const BalanceCard = () => {
                 }
               }}
             />
-          )}
             </div>
           </div>
         </div>

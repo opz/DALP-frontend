@@ -5,7 +5,6 @@ import { WalletProvider } from "./providers/wallet";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/style.css";
-import "./scss/style.scss";
 import { DataProvider } from "./providers/data";
 
 ReactDOM.render(

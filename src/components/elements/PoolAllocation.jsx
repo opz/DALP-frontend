@@ -35,9 +35,8 @@ const StyledRow = styled.div`
 `;
 
 const TokenIcon = styled.img`
-  width: 48px;
-  height: 48px;
-  margin-right: 10px;
+  width: ${props => props.size || "48px"};
+  height: ${props => props.size || "48px"};
 `;
 
 const PoolAllocation = () => {
@@ -114,7 +113,7 @@ const PoolAllocation = () => {
 
   return (
     <React.Fragment>
-      <h5 className="card-title">Pool Allocation</h5>
+      <h5 className="card-title">Current Allocation</h5>
       <Card>
         <div className="card-body">
           {token0 === zeroAddress && token1 === zeroAddress ? (
@@ -124,26 +123,53 @@ const PoolAllocation = () => {
               </div>
             </StyledRow>
           ) : (
-            <React.Fragment>
-              <StyledRow key="token0" className="row">
-                <div className="col-md-12 d-flex align-items-center justify-content-between">
-                  <div className="d-flex align-items-center">
+            <div className="row">
+              <div className="col-md-8">
+                <div className="row text-center d-flex align-items-center">
+                  <div className="col-md-5">
                     <TokenIcon src={icons[token0Data.symbol]} />
                     <h2>{token0Data.symbol}</h2>
+                    <h6>
+                      {wallet.utils.fromWei(token0Data.balance.toString())}
+                    </h6>
                   </div>
-                  <h3>{wallet.utils.fromWei(token0Data.balance.toString())}</h3>
-                </div>
-              </StyledRow>
-              <StyledRow key="token1" className="row">
-                <div className="col-md-12 d-flex align-items-center justify-content-between">
-                  <div className="d-flex align-items-center">
+                  <div className="col-md-2">
+                    <img src={icons.uniswap} width="48px" />
+                  </div>
+                  <div className="col-md-5">
                     <TokenIcon src={icons[token1Data.symbol]} />
                     <h2>{token1Data.symbol}</h2>
+                    <h6>
+                      {wallet.utils.fromWei(token1Data.balance.toString())}
+                    </h6>
                   </div>
-                  <h3>{wallet.utils.fromWei(token1Data.balance.toString())}</h3>
                 </div>
-              </StyledRow>
-              </React.Fragment>
+              </div>
+              <div id="upcoming-allocation" className="col-md-4">
+                <div className="row">
+                  <div className="col-md-12 text-center">
+                    <h5 className="mb-3">Upcoming Allocation</h5>
+                  </div>
+                  
+                </div>
+                <div className="d-flex justify-space-between" style={{
+                  'justifyContent': 'space-around',
+                  'alignItems': 'center'
+                }}>
+                    <div className="text-center">
+                      <TokenIcon src={icons.DAI} size="36px" />
+                      <h3 className="upcoming-token">DAI</h3>
+                    </div>
+                    <div className="text-center">
+                      <img src={icons.uniswap} width="24px" />
+                    </div>
+                    <div className="text-center">
+                      <TokenIcon src={icons.ETH} size="36px" />
+                      <h3 className="upcoming-token">ETH</h3>
+                    </div>
+                  </div>
+              </div>
+            </div>
           )}
         </div>
       </Card>

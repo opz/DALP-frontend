@@ -3,9 +3,12 @@ import ETH from "./ETH.png";
 import MKR from "./MKR.png";
 import WETH from "./WETH.png";
 
+import uniswap from "./uniswap.png";
+
 export {
     DAI,
     ETH,
     MKR,
-    WETH
+    WETH,
+    uniswap
 };

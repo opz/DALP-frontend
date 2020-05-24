@@ -1,9 +1,21 @@
 import React from "react";
+import { Row, Col } from "reactstrap";
+import {
+  noMarginPad,
+  topCenter,
+  allCenter,
+  full,
+} from "../../Constants/alignments";
+import cn from "classnames";
+import Features from "../layout/Features";
+import Contact from "../elements/Contact/Contact";
+
 import uniswap from "../../assets/images/uniswap.png";
 import balancer from "../../assets/images/balancer.png";
 import compound from "../../assets/images/compound.png";
 import bancor from "../../assets/images/bancor.png";
-import hero from "../../assets/images/hero-img.jpg";
+// import hero from "../../assets/images/hero-img.jpg";
+import hero from "../../assets/images/hero-img-2.png";
 
 const Home = () => (
   <div id="page">
@@ -18,7 +30,11 @@ const Home = () => (
           </h4>
         </div>
         <div className="col-md-6 offset-md-1">
-          <img alt="Pool Graphic" src={hero} className="w-100" />
+          <img
+            alt="Dope Hero Graphic"
+            src={hero}
+            className={cn("w-100", "hero-graphic")}
+          />
         </div>
       </section>
       <section id="pools" className="row">
@@ -44,25 +60,34 @@ const Home = () => (
       </section>
     </div>
     <section id="features" className="row bg-gray">
-    <div className="container">
-      <div className="col-md-12 text-center">
-          <h2>DALP Features</h2>
-          <h3 className="section-header">
-            See how DALP works to help earn you the highest returns.
-          </h3>
-        </div>
-        <div className="col-md-8">
+      <div className="container">
+        <Row className={cn(full, noMarginPad, allCenter)}>
+          <Col xs="12" lg="10" className={cn(topCenter, noMarginPad)}>
+            <h2>DALP Features</h2>
+            <h3 className="section-header">
+              See how DALP works to help earn you the highest returns.
+            </h3>
 
-        </div>
-        <div className="col-md-4">
-        </div>
-    </div>
+            <Features />
+          </Col>
+        </Row>
+      </div>
     </section>
     <div className="container"></div>
-    <section className="row bg-blue">
-    <div className="container"></div>
+    <section id="contact" className="row bg-blue">
+      <div className="container">
+        <Row className={cn(full, noMarginPad, allCenter)}>
+          <Col xs="12" className={cn(topCenter, noMarginPad)}>
+            <h2>Contact</h2>
+            <h3 className="section-header">
+              Have a question or want to learn more?
+            </h3>
+          </Col>
+
+          <Contact />
+        </Row>
+      </div>
     </section>
-    
   </div>
 );
 

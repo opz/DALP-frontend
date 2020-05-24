@@ -1,0 +1,74 @@
+@import "./Form";
+
+.contact_container {
+   
+    width: 100%;
+    height: 100%;
+    background-color: $blue-dark; //theme-color("bi-charcoal");
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    //   background-attachment: fixed;
+    
+    margin: auto;
+    //   @include xs() {
+    //     margin-top: -5rem;
+    //   }
+    @include md() {
+        margin-top: -2rem;
+    }
+
+
+    .nudge_right {
+        @include md() {
+            margin-left: 5vw;
+        }
+    }
+
+    .div_width {
+        text-align: left;
+        @include lg() {
+            max-width: 55vw;
+        }
+    }
+
+    .contact_title {
+        font-family: Roboto;
+        font-weight: bold;
+        text-align: left;
+        font-size: 2em !important;
+        color: #fff;
+        
+        @include lg() {
+            padding-top: 3rem;
+        }
+    }
+
+    .contact_subtitle {
+        font-family: Roboto;
+        font-weight: 400;
+        font-size: 1.2em;
+        text-align: left;
+        color: #fff;
+        @include xs() {
+            font-size: 15px;
+        }
+    }
+
+    .required {
+        text-align: right;
+        float: right;
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        color: $white;
+        @include xs() {
+            // font-size: 0.65rem;
+            font-size: 0.8rem;
+        }
+    }
+
+    .isrequired {
+        color: $red;
+    }
+
+}

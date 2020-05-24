@@ -23,7 +23,8 @@
     "reactstrap": "^8.4.1",
     "styled-components": "^5.1.0",
     "web3": "^1.2.7",
-    "web3modal": "^1.6.3"
+    "web3modal": "^1.6.3",
+    "yup": "^0.29.0"
   },
   "scripts": {
     "start": "react-scripts start",

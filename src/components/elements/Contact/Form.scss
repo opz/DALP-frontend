@@ -1,0 +1,140 @@
+.contact_container {
+  .form_field_label {
+    font-weight: 600 !important;
+  }
+
+  .form_field_div {
+    background: #fafafa;
+    box-shadow: 0px 3px 6px #aaaaaa67;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem 2.5rem;
+    transition: background-color 0.3s ease-in-out;
+    @include xs() {
+      max-width: 50vw;
+    }
+    @include lg() {
+      max-width: 30vw;
+    }
+    &:hover {
+      background: #004ad7;
+      transition: background-color 0.3s ease-in-out;
+      .form_field_input {
+        color: white;
+        transition: color 0.3s ease-in-out;
+      }
+    }
+    &:active {
+      background: #004ad7;
+    }
+  }
+
+  .form_field_input {
+    min-width: 100%;
+    background: none !important;
+    border: none !important;
+    font-family: "Sofia Pro", sans-serif;
+    font-weight: normal;
+    text-align: left;
+    color: #fff;
+    // padding: 0.2rem 0.3rem;
+    padding: 1rem;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .form_field_input:focus {
+    color: white;
+    background-color: #004ad7;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+    outline: none;
+  }
+
+  ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: $gray-600;
+  }
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: $gray-600;
+  }
+  :-ms-input-placeholder {
+    /* IE 10+ */
+    color: $gray-600;
+  }
+  :-moz-placeholder {
+    /* Firefox 18- */
+    color: $gray-600;
+  }
+
+  /* Button slide template */
+
+  .float_right {
+    float: right !important;
+    margin-left: auto !important;
+  }
+
+  .button_margin {
+    @include xs() {
+      margin-left: 20vw !important;
+    }
+    @include md() {
+      margin-left: 10vw !important;
+    }
+    @include lg() {
+      margin-left: 20vw !important;
+    }
+  }
+
+  .contact-submit-btn {
+    text-align: right;
+    color: $white;
+    background: #004ad7;
+    border: 2px solid $white;
+    border-radius: 5px;
+    display: inline-block;
+    font-family: "Sofia Pro", sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s background ease-in-out;
+
+    &:hover {
+      background: #236ef8;
+      transition: 0.3s background ease-in-out;
+    }
+    @include xs() {
+      font-size: 1.15rem;
+      padding: 0.55rem 0.9rem;
+    }
+    @include md() {
+      font-size: 1.3rem;
+      padding: 0.7rem 2rem;
+    }
+  }
+
+  .thanks {
+    font-family: "Sofia Pro";
+    font-weight: 300;
+    font-size: 2em;
+    color: white;
+    text-align: center;
+  }
+}
+
+//   box-shadow: inset 0 0 0 0 #d80286;
+// box-shadow: inset 0 0 0 0 $white;
+// -webkit-transition: ease-out 0.4s;
+// -moz-transition: ease-out 0.4s;
+// transition: ease-out 0.4s;
+
+// .slide_right:hover {
+//   cursor: pointer;
+//   color: #004ad7;
+//   //   box-shadow: inset 400px 0 0 0 #d80286;
+//   box-shadow: inset 400px 0 0 0 $white;
+// }

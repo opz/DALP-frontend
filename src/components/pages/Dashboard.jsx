@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import "../../scss/style.scss";
 import BalanceCard from "../elements/BalanceCard";
 import ActionForms from "../elements/Form";
 import { WalletContext } from "../../providers/wallet";
@@ -21,9 +22,9 @@ const Dashboard = () => {
             <h1>Loading...</h1>
           )}
           <div className="col-md-8">
-            <PerformanceLine />
-            <hr />
             <PoolAllocation />
+            <hr />
+            <PerformanceLine />
           </div>
         </div>
       </div>

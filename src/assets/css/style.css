@@ -43,7 +43,9 @@ h5.card-title {
   font-family: 'Barlow', sans-serif;
 }
 
-
+.upcoming-token {
+  font-weight: normal;
+}
 
 #hero h1 {
   font-size: 36px;
@@ -99,6 +101,10 @@ h3.section-header {
 
 .navbar-blue a {
   color: white;
+}
+
+#upcoming-allocation {
+  border-left: 1px solid rgba(0,0,0,.1);
 }
 
 a.nav-link.active {

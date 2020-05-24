@@ -37,12 +37,15 @@ const BalanceCard = () => {
           </StyledH2>
           <h5>DALP Balance</h5>
           <hr />
-          <h3 data-testid="Total Supply">
-            {supplyInt}
-          </h3>
-          <h5>Total Supply</h5>
-
-          {balanceInt !== "0.00" && (
+          <div className="row">
+            <div className="col-md-6">
+              <h3 data-testid="Total Supply">
+              {supplyInt}
+            </h3>
+            <h5>Total Supply</h5>
+            </div>
+            <div className="col-md-6">
+            {balanceInt !== "0.00" && (
             <Doughnut
               data={pieData}
               options={{
@@ -52,6 +55,8 @@ const BalanceCard = () => {
               }}
             />
           )}
+            </div>
+          </div>
         </div>
       </Card>
     </React.Fragment>

@@ -9,6 +9,7 @@ import {
 } from "../../Constants/alignments";
 import cn from "classnames";
 import Features from "../layout/Features";
+import Team from "../layout/Team";
 import Contact from "../elements/Contact/Contact";
 
 import uniswap from "../../assets/images/uniswap.png";
@@ -113,6 +114,19 @@ const Home = () => (
             </h3>
 
             <Features />
+          </Col>
+        </Row>
+      </div>
+    </section>
+    <section id="team" className="row bg-gray">
+      <div className="container">
+        <Row className={cn(full, "mt-3", noMarginPad, allCenter)}>
+          <Col xs="12" lg="10" className={cn(topCenter, noMarginPad)}>
+            <h2>Team</h2>
+            <h3 className="section-header">
+              The contributors to the DALP project.
+            </h3>
+            <Team />
           </Col>
         </Row>
       </div>

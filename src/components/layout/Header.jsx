@@ -64,6 +64,11 @@ const Header = ({ location, history }) => {
                 </AnchorLink>
               </li>
               <li className="nav-item">
+                <AnchorLink href="#team" className="nav-link">
+                  Team
+                </AnchorLink>
+              </li>
+              <li className="nav-item">
                 <AnchorLink href="#contact" className="nav-link">
                   Contact
                 </AnchorLink>

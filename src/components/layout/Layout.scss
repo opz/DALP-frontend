@@ -75,3 +75,15 @@
     padding: 1.5rem 3rem;
   }
 }
+
+.team-graphic {
+  @include md() {
+    max-width: 100px !important;
+    max-height: 100px !important;
+    border-radius: 50%;
+  }
+  @include md() {
+    max-width: 150px !important;
+    max-height: 150px !important;
+  }
+}

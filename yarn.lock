@@ -3834,8 +3834,9 @@ d@1, d@^1.0.1:
     es5-ext "^0.10.50"
     type "^1.0.1"
 
-dalp-core@../DALP-core:
+"dalp-core@github:opz/DALP-core":
   version "1.0.0"
+  resolved "https://codeload.github.com/opz/DALP-core/tar.gz/84c450f80696db740e4f131f5c422384f725c0d9"
   dependencies:
     "@openzeppelin/contracts" "^3.0.1"
     "@uniswap/lib" "^1.1.2"

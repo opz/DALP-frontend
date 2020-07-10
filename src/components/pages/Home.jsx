@@ -12,8 +12,10 @@ import Features from "../layout/Features";
 import Team from "../layout/Team";
 import Contact from "../elements/Contact/Contact";
 
+import compound from "../../assets/images/compound.png";
 import uniswap from "../../assets/images/uniswap.png";
 import balancer from "../../assets/images/balancer.png";
+import piedao from "../../assets/images/piedao.png";
 import bancor from "../../assets/images/bancor.png";
 import github from "../../assets/images/github-logo.svg";
 import hero from "../../assets/images/hero-img-2.png";
@@ -23,11 +25,13 @@ const Home = () => (
     <div className="container">
       <section id="hero" className="row">
         <div className="col-md-5 mt-4">
-          <h1>Automatically jump into the best liquidity pools.</h1>
+          <h1>Cutting edge automatic yield farming</h1>
           <h4>
-            DALP will automatically move your funds to liquidity pools that earn
-            you the highest fees. Simply swap your ETH for DALP tokens, and
-            start earning interest.
+            <p>
+              The highest yielding DeFi farming strategies change every day.
+              Trying to keep up will destroy your yield with transaction fees.
+            </p>
+            <p>The DALP automatically balances liquidity across the latest high yielding DeFi strategies.</p>
           </h4>
           <div className={cn(full, allCenter, noMarginPad)}>
             <Row className={cn(full, "mt-2", noMarginPad, leftCenter)}>
@@ -45,20 +49,6 @@ const Home = () => (
                   </button>
                 </a>
               </Col>
-              <Col xs="6" className={cn(allCenter, noMarginPad)}>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://github.com/opz/DALP-frontend"
-                >
-                  <button className={cn("hero-github-btn")}>
-                    <span className={cn("fa fa-github")}>
-                      <img src={github} alt="" className={cn("github-logo")} />
-                    </span>{" "}
-                    See Frontend
-                  </button>
-                </a>
-              </Col>
             </Row>
           </div>
         </div>
@@ -73,18 +63,18 @@ const Home = () => (
       <section id="pools" className="row mb-0">
         <div className="col-md-12 text-center">
           <h3 className="section-header">
-            We integrate with leading automated market maker exchanges.
+            The DALP strategies use leading DeFi protocols and platforms
           </h3>
         </div>
         <div className="row d-flex align-items-center mt-4 text-center">
           <div className="col-md-4">
+            <img src={compound} alt="Compound" className="logo-img" />
+          </div>
+          <div className="col-md-4">
             <img src={balancer} alt="Balancer" className="logo-img" />
           </div>
           <div className="col-md-4">
-            <img src={uniswap} alt="Uniswap" className="logo-img" />
-          </div>
-          <div className="col-md-4">
-            <img src={bancor} alt="Bancor" className="logo-img" />
+            <img src={piedao} alt="PieDAO" className="logo-img" />
           </div>
         </div>
       </section>

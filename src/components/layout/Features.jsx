@@ -19,29 +19,28 @@ import bars from "../../assets/images/bars.svg";
 const Features = () => {
   return (
     <div className={cn(full, topCenter, noMarginPad)}>
-      <Row className={cn(full, topAlign, "mt-5", noMarginPad)}>
-        <Col xs="6" className={cn(allCenter, noMarginPad)}>
-          <img src={magnify} alt="magnify" className={cn("features-graphic")} />
-        </Col>
-        <Col xs="6" className={cn(leftCenter, noMarginPad)}>
-          <div className={cn(full, topLeft, noMarginPad)}>
-            <h4>Dashboard Analytics</h4>
-            <p>Get profit/loss and 30 day historic reviews of performance.</p>
-          </div>
-        </Col>
-      </Row>
       <Row className={cn(full, topAlign, "mt-3", noMarginPad)}>
+        <Col xs="6" className={cn(allCenter, noMarginPad)}>
+          <img src={gold} alt="gold" className={cn("features-graphic")} />
+        </Col>
         <Col xs="6" className={cn(rightCenter, noMarginPad)}>
           <div className={cn(full, topRight, noMarginPad)}>
-            <h4 className={cn("text-right")}>Transfer Liquidity </h4>
+            <h4 className={cn("text-right")}>Cutting edge yield farming strategies</h4>
             <p className={cn("text-right")}>
-              Reduce impermanent loss between pools in the same or different
-              AMMs.
+              Yield farm the way whales do it. Let the DALP manage your liquidity and maximize your APY.
             </p>
           </div>
         </Col>
+      </Row>
+      <Row className={cn(full, topAlign, "mt-5", noMarginPad)}>
+        <Col xs="6" className={cn(leftCenter, noMarginPad)}>
+          <div className={cn(full, topLeft, noMarginPad)}>
+            <h4>Yield Analytics</h4>
+            <p>Get analytics for average APYs and P&L across all yield farming strategies.</p>
+          </div>
+        </Col>
         <Col xs="6" className={cn(allCenter, noMarginPad)}>
-          <img src={gold} alt="gold" className={cn("features-graphic")} />
+          <img src={magnify} alt="magnify" className={cn("features-graphic")} />
         </Col>
       </Row>
       <Row className={cn(full, topAlign, "mt-3", noMarginPad)}>
@@ -50,8 +49,8 @@ const Features = () => {
         </Col>
         <Col xs="6" className={cn(leftCenter, noMarginPad)}>
           <div className={cn(full, topLeft, noMarginPad)}>
-            <h4>Buy DALP / Redeem ETH</h4>
-            <p>Easily transfer in and out of the DALP token.</p>
+            <h4>Decentralized and Permissionless</h4>
+            <p>Add or remove liquidity from The DALP whenever you want with no KYC.</p>
           </div>
         </Col>
       </Row>

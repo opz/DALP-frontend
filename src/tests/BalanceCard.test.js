@@ -1,9 +1,18 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import BalanceCard from '../components/elements/BalanceCard';
+import { WalletProvider } from "../providers/wallet";
+import { DataProvider } from "../providers/data";
 
 test('renders static text', () => {
-  const { getByText } = render(<BalanceCard />);
+  const balanceCard = (
+    <WalletProvider>
+      <DataProvider>
+        <BalanceCard />
+      </DataProvider>
+    </WalletProvider>
+  );
+  const { getByText } = render(balanceCard);
   const title = getByText(/Your Balance/i);
   expect(title).toBeInTheDocument();
   const balanceText = getByText(/DALP Balance/i);
@@ -13,9 +22,15 @@ test('renders static text', () => {
 });
 
 test('renders dynamic values', () => {
-    const { getByTestId } = render(<BalanceCard />);
-    const balance = getByTestId("DALP Balance");
-    expect(balance).toBeInTheDocument();
-    expect(balance).toHaveTextContent("0.00");
-  });
-  
+  const balanceCard = (
+    <WalletProvider>
+      <DataProvider>
+        <BalanceCard />
+      </DataProvider>
+    </WalletProvider>
+  );
+  const { getByTestId } = render(balanceCard);
+  const balance = getByTestId("DALP Balance");
+  expect(balance).toBeInTheDocument();
+  expect(balance).toHaveTextContent("0.00");
+});

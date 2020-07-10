@@ -60,8 +60,6 @@ const BuyForm = () => {
   };
 
   return (
-    // <Card title="Buy DALP">
-    //   <div className="card-body">
     <React.Fragment>
       <p>
         Mint DALP tokens by staking your ETH. We'll calculate how many DALP

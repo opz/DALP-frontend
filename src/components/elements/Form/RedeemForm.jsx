@@ -55,8 +55,6 @@ const RedeemForm = () => {
   };
 
   return (
-    // <Card title="Buy DALP">
-    //   <div className="card-body">
     <React.Fragment>
       <p>
         Redeem ETH by selling DALP. We'll calculate how much you can
@@ -90,8 +88,6 @@ const RedeemForm = () => {
         )}
       </form>
     </React.Fragment>
-
-    // {/* </div> </Card> */}
   );
 };
 

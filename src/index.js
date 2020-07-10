@@ -6,6 +6,17 @@ import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/style.css";
 import { DataProvider } from "./providers/data";
+import { createBrowserHistory } from 'history';
+
+const history = createBrowserHistory();
+
+// eslint-disable-next-line no-restricted-globals
+console.log(location.hash);
+// eslint-disable-next-line no-restricted-globals
+const path = (/#!(\/.*)$/.exec(location.hash) || [])[1];
+if (path) {
+  history.replace(path);
+}
 
 ReactDOM.render(
   <React.StrictMode>

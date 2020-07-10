@@ -134,7 +134,7 @@ const PoolAllocation = () => {
                     </h6>
                   </div>
                   <div className="col-md-2">
-                    <img src={icons.uniswap} width="48px" />
+                    <img alt="" src={icons.uniswap} width="48px" />
                   </div>
                   <div className="col-md-5">
                     <TokenIcon src={icons[token1Data.symbol]} />
@@ -161,7 +161,7 @@ const PoolAllocation = () => {
                       <h3 className="upcoming-token">DAI</h3>
                     </div>
                     <div className="text-center">
-                      <img src={icons.uniswap} width="24px" />
+                      <img alt="" src={icons.uniswap} width="24px" />
                     </div>
                     <div className="text-center">
                       <TokenIcon src={icons.ETH} size="36px" />

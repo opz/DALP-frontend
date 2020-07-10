@@ -43,9 +43,6 @@ const WalletProvider = props => {
         fromBlock: "earliest",
         toBlock: "latest"
       }).then(results => {
-        results.map(result => {
-          console.log(result.returnValues);
-        });
       });
     }
   }, [dalpManager]);

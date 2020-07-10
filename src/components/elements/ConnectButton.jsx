@@ -25,9 +25,9 @@ const WalletButton = styled(Link)`
 
 const ConnectButton = ({ history }) => {
 
-    const { wallet, setWallet } = useContext(WalletContext);
+    const { setWallet } = useContext(WalletContext);
     const [account, setAccount] = useState(null);
-    const [provider, setProvider] = useState(null);
+  const [provider, setProvider] = useState(null); // eslint-disable-line no-unused-vars
 
     async function connect() {
         try {
@@ -39,34 +39,6 @@ const ConnectButton = ({ history }) => {
           setAccount(accounts[0]);
           history.push('/dashboard');
         } catch (err) {
-          console.error(err);
-        }
-      }
-    
-      async function disconnect() {
-        try {
-    
-          console.log(wallet);
-          console.log(wallet.currentProvider);
-          console.log(provider);
-          console.log(provider.close);
-          console.log(provider.disconnect);
-          console.log(wallet.currentProvider.close);
-          console.log(wallet.currentProvider.disconnect);
-          if (wallet && wallet.currentProvider && wallet.currentProvider.close) {
-            console.log("HELLOW");
-          }
-    
-          const response = await web3Modal.clearCachedProvider();
-          console.log(response);
-    
-          // console.log(provider);
-          // if (provider.close) {
-          //   provider.disconnect();
-          //   provider.close();
-          // }
-          // 
-        } catch(err) {
           console.error(err);
         }
       }

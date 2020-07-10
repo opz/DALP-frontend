@@ -2,14 +2,13 @@ import React, { useState, useEffect, useContext } from "react";
 // import { Card } from "../../styled";
 import { WalletContext } from "../../../providers/wallet";
 import Web3 from "web3";
-import BeatLoader from "react-spinners/BeatLoader";
 
 const RedeemForm = () => {
-  const { account, dalpToken, dalpManager } = useContext(WalletContext);
+  const { account, dalpManager, loadBalance } = useContext(WalletContext);
   const [amount, setAmount] = useState("");
   const [submitting, setSubmitting] = useState(false);
-  const [calculating, setCalulating] = useState(false);
-  const [redeemAmount, setRedeemAmount] = useState(0);
+  const [calculating, setCalulating] = useState(false); // eslint-disable-line no-unused-vars
+  const [redeemAmount, setRedeemAmount] = useState(0); // eslint-disable-line no-unused-vars
 
   const calculateRedeemAmount = async (val) => {
     if (!val || !dalpManager || isNaN(val)) {
@@ -43,12 +42,12 @@ const RedeemForm = () => {
     const amountToSend = Web3.utils.toWei(amount, "ether");
 
     try {
-      await dalpToken.methods.approve(dalpManager.options.address, amountToSend);
       await dalpManager.methods.redeem(amountToSend).send({
         from: account
       });
       setSubmitting(false);
       setAmount("");
+      loadBalance();
     } catch (err) {
       console.error(err);
       setSubmitting(false);
@@ -90,24 +89,6 @@ const RedeemForm = () => {
           </button>
         )}
       </form>
-      <ul className="list-group mt-2">
-        <li className="list-group-item d-flex justify-content-between align-items-center">
-          ETH
-          {
-            calculating
-              ? <BeatLoader size={12} />
-              : <span>
-                {
-                  Number(
-                    Web3.utils.fromWei(
-                      redeemAmount.toString()
-                    )
-                  ).toLocaleString()
-                }
-                </span>
-          }
-        </li>
-      </ul>
     </React.Fragment>
 
     // {/* </div> </Card> */}

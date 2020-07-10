@@ -3,7 +3,6 @@ import { Row, Col } from "reactstrap";
 import {
   noMarginPad,
   topCenter,
-  allCenter,
   full,
 } from "../../../Constants/alignments";
 import cn from "classnames";

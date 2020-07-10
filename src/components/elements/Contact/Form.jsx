@@ -5,12 +5,10 @@ import {
   noMarginPad,
   topCenter,
   allCenter,
-  rightCenter,
   leftCenter,
   full,
 } from "../../../Constants/alignments";
 import cn from "classnames";
-import * as yup from "yup";
 
 // const schema = yup.object({
 //   name: yup.string().required("Missing name"),

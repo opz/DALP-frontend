@@ -49,7 +49,7 @@ const PerformanceLine = () => {
             labels
         });
 
-    }, [duration]);
+    }, [duration, data.performanceLine, demo]);
 
     
     return (

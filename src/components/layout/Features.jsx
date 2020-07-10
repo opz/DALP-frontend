@@ -8,7 +8,6 @@ import {
   leftCenter,
   rightCenter,
   topRight,
-  rightRight,
   allCenter,
   full,
 } from "../../Constants/alignments";

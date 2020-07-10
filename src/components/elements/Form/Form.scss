@@ -10,6 +10,11 @@
       transition: 0.3s all linear;
     }
   }
+  .form-actions-navlink {
+      &:active {
+          background: #f1f0f0 !important;
+      }
+  }
 }
 
 .form-actions-navlink {
@@ -24,10 +29,5 @@
   //       background: #004ad7 !important;
   //       transition: 0.3s all linear;
   //     }
-  //   }
-  //   &:active {
-  //     background: #004ad7 !important;
-  //     color: white;
-  //     transition: 0.3s all linear;
   //   }
 }

@@ -13,10 +13,8 @@ import Team from "../layout/Team";
 import Contact from "../elements/Contact/Contact";
 
 import compound from "../../assets/images/compound.png";
-import uniswap from "../../assets/images/uniswap.png";
 import balancer from "../../assets/images/balancer.png";
 import piedao from "../../assets/images/piedao.png";
-import bancor from "../../assets/images/bancor.png";
 import github from "../../assets/images/github-logo.svg";
 import hero from "../../assets/images/hero-img-2.png";
 

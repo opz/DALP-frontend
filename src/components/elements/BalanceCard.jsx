@@ -32,10 +32,10 @@ const BalanceCard = () => {
       <h5 className="card-title">Your Balance</h5>
       <Card>
         <div className="card-body text-center">
-          <StyledH2 data-testid="DALP Balance">
+          <StyledH2 data-testid="APT Balance">
             {balanceInt}
           </StyledH2>
-          <h5>DALP Balance</h5>
+          <h5>APT Balance</h5>
           <hr />
           <div className="row">
             <div className="col-md-6">

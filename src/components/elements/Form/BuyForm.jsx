@@ -62,7 +62,7 @@ const BuyForm = () => {
   return (
     <React.Fragment>
       <p>
-        Mint DALP tokens by staking your ETH. We'll calculate how many DALP
+        Mint APT tokens by staking your ether. We'll calculate how many APT
         tokens you can expect to mint.
       </p>
 
@@ -94,7 +94,7 @@ const BuyForm = () => {
       </form>
       <ul className="list-group mt-2">
         <li className="list-group-item d-flex justify-content-between align-items-center">
-          DALP Tokens
+          APT Tokens
           {
             calculating
               ? <BeatLoader size={12} />

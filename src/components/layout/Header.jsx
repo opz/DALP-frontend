@@ -17,7 +17,7 @@ const Header = ({ location, history }) => {
     >
       <div className="container">
         <Link to="/" className="navbar-brand" href="#">
-          <img alt="DALP Logo" src={isDashboard ? iconWhite : iconBlue} />
+          <img alt="APY.Finance" src={isDashboard ? iconWhite : iconBlue} />
         </Link>
         <button
           className="navbar-toggler"

@@ -32,7 +32,7 @@ const ActionForms = (props) => {
               toggle("1");
             }}
           >
-            Buy DALP
+            Buy APT
           </NavLink>
         </NavItem>
         <NavItem className={cn("form-actions-tab")}>

@@ -57,7 +57,7 @@ const RedeemForm = () => {
   return (
     <React.Fragment>
       <p>
-        Redeem ETH by selling DALP. We'll calculate how much you can
+        Redeem ETH by selling APT. We'll calculate how much you can
         expect to make.
       </p>
 
@@ -66,7 +66,7 @@ const RedeemForm = () => {
           onChange={onChange}
           value={amount}
           className="form-control form-control-lg"
-          placeholder="DALP Amount"
+          placeholder="APT Amount"
           type="text"
           disabled={submitting}
         />
@@ -83,7 +83,7 @@ const RedeemForm = () => {
             type="submit"
             className="btn btn-primary btn-block btn-lg mt-2"
           >
-            Redeem {amount} DALP
+            Redeem {amount} APT
           </button>
         )}
       </form>

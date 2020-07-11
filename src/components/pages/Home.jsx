@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import { Row, Col } from "reactstrap";
 import {
   noMarginPad,
@@ -11,6 +12,7 @@ import cn from "classnames";
 import Features from "../layout/Features";
 import Team from "../layout/Team";
 import Contact from "../elements/Contact/Contact";
+import ConnectButton from "../elements/ConnectButton";
 
 import compound from "../../assets/images/compound.png";
 import balancer from "../../assets/images/balancer.png";
@@ -86,9 +88,7 @@ const Home = () => (
           className={cn(allCenter, "mb-5", noMarginPad)}
         >
           <div className={cn(full, allCenter, noMarginPad)}>
-            <a target="_blank" rel="noopener noreferrer" href="/dashboard">
-              <button className={cn("get-started-btn")}>Get Started</button>
-            </a>
+            <ConnectButton homePage={true} />
           </div>
         </Col>
       </Row>
@@ -136,4 +136,4 @@ const Home = () => (
   </div>
 );
 
-export default Home;
+export default withRouter(Home);

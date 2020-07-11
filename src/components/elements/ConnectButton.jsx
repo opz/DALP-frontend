@@ -26,18 +26,15 @@ const WalletButton = styled(Link)`
 
 const ConnectButton = ({ history, homePage }) => {
 
-    const { setWallet } = useContext(WalletContext);
-    const [account, setAccount] = useState(null);
+    const { account, setWallet } = useContext(WalletContext);
     const [provider, setProvider] = useState(null); // eslint-disable-line no-unused-vars
 
     async function connect() {
         try {
           const providerResponse = await web3Modal.connect();
           const web3 = new Web3(providerResponse);
-          const accounts = await web3.eth.getAccounts();
           setProvider(providerResponse);
           setWallet(web3);
-          setAccount(accounts[0]);
           history.push('/dashboard');
         } catch (err) {
           console.error(err);

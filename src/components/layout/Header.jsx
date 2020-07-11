@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, NavLink, withRouter } from "react-router-dom";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import iconWhite from "../../assets/images/icon-white.png";
-import iconBlue from "../../assets/images/icon-blue.png";
+import iconWhite from "../../assets/images/logo-white.svg";
+import iconBlue from "../../assets/images/logo.svg";
 import ConnectButton from "../elements/ConnectButton";
 import DemoSwitch from "../elements/DemoSwitch";
 
@@ -18,7 +18,6 @@ const Header = ({ location, history }) => {
       <div className="container">
         <Link to="/" className="navbar-brand" href="#">
           <img alt="DALP Logo" src={isDashboard ? iconWhite : iconBlue} />
-          DALP
         </Link>
         <button
           className="navbar-toggler"

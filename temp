@@ -1,0 +1,1 @@
+@web3-react/injected-connector @web3-react/network-connector @web3-react/walletconnect-connector @web3-react/walletlink-connector @web3-react/ledger-connector @web3-react/trezor-connector @web3-react/frame-connector @web3-react/authereum-connector @web3-react/fortmatic-connector @web3-react/portis-connector @web3-react/squarelink-connector @web3-react/torus-connector

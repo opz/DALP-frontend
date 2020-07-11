@@ -80,7 +80,7 @@ h3.section-header {
 }
 
 .navbar-brand > img {
-  height: 32px;
+  height: 50px;
   margin-right: 10px;
 }
 
@@ -95,7 +95,7 @@ h3.section-header {
 .navbar-blue {
   background: #004AD7;
   font-family: 'Sofia Pro';
-  font-weight: bold;
+  font-weight: normal;
   font-size: 16px;
 }
 

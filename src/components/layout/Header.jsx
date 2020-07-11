@@ -7,7 +7,7 @@ import ConnectButton from "../elements/ConnectButton";
 import DemoSwitch from "../elements/DemoSwitch";
 
 const Header = ({ location, history }) => {
-  const isDashboard = location.pathname === "/dashboard";
+  const isDashboard = ["/dashboard", "/transactions"].includes(location.pathname);
 
   return (
     <nav

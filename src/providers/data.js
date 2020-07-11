@@ -4,7 +4,7 @@ const DataConsumer = DataContext.Consumer;
 
 const DataProvider = props => {
   const [demo, setDemo] = useState(false);
-  
+
   const emptyArr = Array.apply(null, Array(30));
 
   const data = {
@@ -26,7 +26,7 @@ const DataProvider = props => {
     performanceLine: {
       datasets: [
         {
-          label: 'Add Label',
+          label: 'APY (%)',
           fill: false,
           lineTension: 0.1,
           backgroundColor: 'rgba(75,192,192,0.4)',
@@ -47,7 +47,7 @@ const DataProvider = props => {
           data: emptyArr.map(val => (Math.random() * 8 + 1).toFixed(1))
         }
       ]
-    } 
+    }
   };
 
   return (

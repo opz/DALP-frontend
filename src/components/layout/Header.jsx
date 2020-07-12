@@ -67,11 +67,6 @@ const Header = ({ location, history }) => {
                   Team
                 </AnchorLink>
               </li>
-              <li className="nav-item">
-                <AnchorLink href="#contact" className="nav-link">
-                  Contact
-                </AnchorLink>
-              </li>
             </ul>
           )}
           {isDashboard && <DemoSwitch />}

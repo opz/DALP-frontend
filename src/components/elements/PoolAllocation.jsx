@@ -119,7 +119,7 @@ const PoolAllocation = () => {
           {token0 === zeroAddress && token1 === zeroAddress ? (
             <StyledRow className="row">
               <div className="col-md-12 d-flex align-items-center justify-content-between">
-                <h2>DALP is not invested in a pool</h2>
+                <h2>APY.Finance is not invested in a pool</h2>
               </div>
             </StyledRow>
           ) : (

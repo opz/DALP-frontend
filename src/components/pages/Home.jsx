@@ -29,7 +29,7 @@ const Home = () => (
           <h1>Layer 2 for yield farming</h1>
           <h4>
             <p>
-              <b>APY.Finance</b> smart contracts continuously routes your funds to the latest-and-greatest yield farming strategies.
+              <b>APY.Finance</b> smart contracts continuously route your funds to the latest-and-greatest yield farming strategies.
             </p>
           </h4>
           <div className={cn(full, leftLeft, noMarginPad)}>

@@ -32,7 +32,7 @@ const Team = () => {
           <p className={cn("mt-3", "text-center")}>
             <b>Sunil Srivatsa</b>
             <br />
-            DeFi Strategy Advisor
+            DeFi Strategist
           </p>
         </Col>
       </Row>

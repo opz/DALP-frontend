@@ -9,7 +9,8 @@ const WalletConsumer = WalletContext.Consumer;
 
 const WalletProvider = props => {
   const [wallet, setWallet] = useState(null);
-  const [account, setAccount] = useState('');
+  const [account, setAccount] = useState("");
+  const [networkId, setNetworkId] = useState(null);
   const [dalpManager, setDalpManager] = useState(null);
   const [dalpToken, setDalpToken] = useState(null);
   const [balance, setBalance] = useState(0);
@@ -19,6 +20,15 @@ const WalletProvider = props => {
     try {
       const accounts = await wallet.eth.getAccounts();
       setAccount(accounts[0]);
+    } catch(err) {
+      console.error(err);
+    }
+  }
+
+  async function loadNetworkId() {
+    try {
+      const networkId = await wallet.eth.net.getId();
+      setNetworkId(networkId);
     } catch(err) {
       console.error(err);
     }
@@ -57,6 +67,7 @@ const WalletProvider = props => {
   useEffect(() => {
     if (wallet) {
       loadAccount();
+      loadNetworkId();
       setDalpManager(new wallet.eth.Contract(DALPManager.abi, DALPManagerAddress));
       setDalpToken(new wallet.eth.Contract(DALP.abi, DALPAddress));
     }
@@ -64,7 +75,7 @@ const WalletProvider = props => {
 }, [wallet]);
 
   return (
-    <WalletContext.Provider value={{ wallet, setWallet, dalpManager, dalpToken, account, balance, supply, loadBalance }}>
+    <WalletContext.Provider value={{ wallet, setWallet, networkId, dalpManager, dalpToken, account, balance, supply, loadBalance }}>
       {props.children}
     </WalletContext.Provider>
   );

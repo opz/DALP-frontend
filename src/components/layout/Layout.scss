@@ -1,4 +1,5 @@
 .hero-github-btn {
+  white-space: nowrap;
   text-align: center;
   color: $white;
   background: #333333;
@@ -52,7 +53,7 @@
   text-align: center;
   color: $white;
   background: #004ad7;
-  box-shadow: 0px 10px 12px #236ef849;
+  box-shadow: 0px 3px 6px #236ef849;
   border-radius: 5px;
   display: inline-block;
   font-family: "Sofia Pro", sans-serif;
@@ -61,18 +62,17 @@
   transition: 0.3s background ease-in-out, 0.3s box-shadow ease-in-out;
 
   &:hover {
-    background: rgb(29, 105, 248);
+    background: #4d4d4d;
     box-shadow: none;
     transition: 0.3s background ease-in-out, 0.3s box-shadow ease-in-out;
   }
 
   @include xs() {
-    font-size: 1.8rem;
-    padding: 1rem 1.5rem;
+    font-size: 1.15rem;
+    padding: 0.55rem 0.9rem;
   }
   @include md() {
-    font-size: 2.1rem;
-    padding: 1.5rem 3rem;
+    padding: 0.7rem 2rem;
   }
 }
 

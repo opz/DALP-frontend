@@ -5,15 +5,16 @@ import {
   noMarginPad,
   topCenter,
   allCenter,
-  leftCenter,
+  leftLeft,
   full,
 } from "../../Constants/alignments";
 import cn from "classnames";
 import Features from "../layout/Features";
 import Team from "../layout/Team";
-import Contact from "../elements/Contact/Contact";
 import ConnectButton from "../elements/ConnectButton";
 
+import uniswap from "../../assets/images/uniswap.png";
+import synthetix from "../../assets/images/synthetix.png";
 import compound from "../../assets/images/compound.png";
 import balancer from "../../assets/images/balancer.png";
 import piedao from "../../assets/images/piedao.png";
@@ -25,18 +26,15 @@ const Home = () => (
     <div className="container">
       <section id="hero" className="row">
         <div className="col-md-5 mt-4">
-          <h1>Push the boundaries of DeFi</h1>
+          <h1>Layer 2 for yield farming</h1>
           <h4>
             <p>
-              Invest like the DeFi whales by yield farming with complex high APY strategies.
-            </p>
-            <p>
-              <b>APY.Finance</b> will automatically route your tokens into cutting edge yield farming strategies to earn the highest APY.
+              <b>APY.Finance</b> smart contracts continuously routes your funds to the latest-and-greatest yield farming strategies.
             </p>
           </h4>
-          <div className={cn(full, allCenter, noMarginPad)}>
-            <Row className={cn(full, "mt-2", noMarginPad, leftCenter)}>
-              <Col xs="6" className={cn(allCenter, noMarginPad)}>
+          <div className={cn(full, leftLeft, noMarginPad)}>
+            <Row className={cn(full, "mt-2", noMarginPad, leftLeft)}>
+              <Col xs="6" className={cn(leftLeft, noMarginPad)}>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
@@ -52,6 +50,13 @@ const Home = () => (
               </Col>
             </Row>
           </div>
+          <div className={cn(full, leftLeft, noMarginPad)}>
+            <Row className={cn(full, "mt-2", noMarginPad, leftLeft)}>
+              <Col xs="6" className={cn(leftLeft, noMarginPad)}>
+                <ConnectButton homePage={true} />
+              </Col>
+            </Row>
+          </div>
         </div>
         <div className="col-md-6 offset-md-1">
           <img
@@ -64,7 +69,7 @@ const Home = () => (
       <section id="pools" className="row mb-0">
         <div className="col-md-12 text-center">
           <h3 className="section-header">
-            APY.Finance uses leading DeFi protocols for its cutting edge strategies
+            APY.Finance connects with the leading DeFi protocols
           </h3>
         </div>
         <div className="row d-flex align-items-center mt-4 text-center">
@@ -72,33 +77,29 @@ const Home = () => (
             <img src={compound} alt="Compound" className="logo-img" />
           </div>
           <div className="col-md-4">
-            <img src={balancer} alt="Balancer" className="logo-img" />
+            <img src={piedao} alt="PieDAO" className="logo-img" />
           </div>
           <div className="col-md-4">
-            <img src={piedao} alt="PieDAO" className="logo-img" />
+            <img src={balancer} alt="Balancer" className="logo-img" />
+          </div>
+        </div>
+        <div className="row d-flex justify-content-center align-items-center mt-5 text-center">
+          <div className="col-md-4">
+            <img src={uniswap} alt="Uniswap" className="logo-img" />
+          </div>
+          <div className="col-md-4">
+            <img src={synthetix} alt="Synthetix" className="logo-img" />
           </div>
         </div>
       </section>
     </div>
     <section id="features" className="row bg-gray">
-      <Row className={cn(full, noMarginPad, allCenter)}>
-        <Col
-          xs="12"
-          md="10"
-          lg="8"
-          className={cn(allCenter, "mb-5", noMarginPad)}
-        >
-          <div className={cn(full, allCenter, noMarginPad)}>
-            <ConnectButton homePage={true} />
-          </div>
-        </Col>
-      </Row>
       <div className="container">
         <Row className={cn(full, "mt-3", noMarginPad, allCenter)}>
           <Col xs="12" lg="10" className={cn(topCenter, noMarginPad)}>
             <h2>APY.Finance Features</h2>
             <h3 className="section-header">
-              How you can get the most out of DeFi with APY.Finance
+              How you can get the most out of DeFi
             </h3>
 
             <Features />
@@ -106,31 +107,13 @@ const Home = () => (
         </Row>
       </div>
     </section>
-    <section id="team" className="row bg-gray">
+    <section id="team" className="row bg-gray mb-5">
       <div className="container">
         <Row className={cn(full, "mt-3", noMarginPad, allCenter)}>
           <Col xs="12" lg="10" className={cn(topCenter, noMarginPad)}>
             <h2>Team</h2>
-            <h3 className="section-header">
-              The contributors to the DALP project.
-            </h3>
             <Team />
           </Col>
-        </Row>
-      </div>
-    </section>
-    <div className="container"></div>
-    <section id="contact" className="row bg-blue">
-      <div className="container">
-        <Row className={cn(full, noMarginPad, allCenter)}>
-          <Col xs="12" className={cn(topCenter, noMarginPad)}>
-            <h2>Contact</h2>
-            <h3 className="section-header">
-              Have a question or want to learn more?
-            </h3>
-          </Col>
-
-          <Contact />
         </Row>
       </div>
     </section>

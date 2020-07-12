@@ -14,7 +14,7 @@ import {
 import cn from "classnames";
 import magnify from "../../assets/images/magnify.svg";
 import gold from "../../assets/images/gold.svg";
-import bars from "../../assets/images/bars.svg";
+import governance from "../../assets/images/governance.svg";
 
 const Features = () => {
   return (
@@ -25,10 +25,12 @@ const Features = () => {
         </Col>
         <Col xs="6" className={cn(rightCenter, noMarginPad)}>
           <div className={cn(full, topRight, noMarginPad)}>
-            <h4 className={cn("text-right")}>Maximum APY</h4>
+            <h4 className={cn("text-right")}>Next-Generation Yield Farming</h4>
             <p className={cn("text-right")}>
-              The APY.Finance platform automatically routes your funds to the most cutting edge yield farming opportunities.
+              APY.Finance connects DeFi money legos together to innovate high APY strategies with diversified smart contract risk.
             </p>
+            <p>Auto-swap liquidity mining rewards to compound APY.</p>
+            <p>Customize by asset choice and risk tolerance.</p>
           </div>
         </Col>
       </Row>
@@ -37,6 +39,7 @@ const Features = () => {
           <div className={cn(full, topLeft, noMarginPad)}>
             <h4>APY Analytics</h4>
             <p>Track your profits with analytics across all APY.Finance strategies.</p>
+            <p>Keep up-to-date on the latest DeFi smart contract risk factors.</p>
           </div>
         </Col>
         <Col xs="6" className={cn(allCenter, noMarginPad)}>
@@ -45,12 +48,13 @@ const Features = () => {
       </Row>
       <Row className={cn(full, topAlign, "mt-3", noMarginPad)}>
         <Col xs="6" className={cn(allCenter, noMarginPad)}>
-          <img src={bars} alt="bars" className={cn("features-graphic")} />
+          <img src={governance} alt="bars" className={cn("features-graphic")} />
         </Col>
         <Col xs="6" className={cn(leftCenter, noMarginPad)}>
           <div className={cn(full, topLeft, noMarginPad)}>
-            <h4>Decentralized and Community Owned</h4>
-            <p>Vote on new proposals for APY.Finance with the APY token to keep it aligned with the community.</p>
+            <h4>Decentralized and Community-Owned</h4>
+            <p>Users are incentivized with the APY governance token to keep strategy models up-to-date with the latest DeFi developements.</p>
+            <p>Fully community-owned. Propose and vote on any system parameter.</p>
           </div>
         </Col>
       </Row>

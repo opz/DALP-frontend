@@ -44,7 +44,7 @@ const ConnectButton = ({ history, homePage }) => {
     const className = homePage ? cn("get-started-btn") : "btn btn-primary my-2 my-sm-0";
     const buttonText = homePage ? "Get Started" : "Connect";
 
-    return account ? (
+    return account && !homePage ? (
       <React.Fragment>
         <WalletButton to="/dashboard">{account.slice(0, 6)+"..."+account.slice(account.length - 4, account.length)}</WalletButton>
       </React.Fragment>

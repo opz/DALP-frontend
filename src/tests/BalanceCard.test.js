@@ -15,7 +15,7 @@ test('renders static text', () => {
   const { getByText } = render(balanceCard);
   const title = getByText(/Your Balance/i);
   expect(title).toBeInTheDocument();
-  const balanceText = getByText(/DALP Balance/i);
+  const balanceText = getByText(/APT Balance/i);
   expect(balanceText).toBeInTheDocument();
   const supplyText = getByText(/Total Supply/i);
   expect(supplyText).toBeInTheDocument();
@@ -30,7 +30,7 @@ test('renders dynamic values', () => {
     </WalletProvider>
   );
   const { getByTestId } = render(balanceCard);
-  const balance = getByTestId("DALP Balance");
+  const balance = getByTestId("APT Balance");
   expect(balance).toBeInTheDocument();
   expect(balance).toHaveTextContent("0.00");
 });

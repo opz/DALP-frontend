@@ -13,6 +13,6 @@ test('renders app w/ header', () => {
     </WalletProvider>
   );
   const { getByAltText } = render(app);
-  const logo = getByAltText("DALP Logo");
+  const logo = getByAltText("APY.Finance");
   expect(logo).toBeInTheDocument();
 });

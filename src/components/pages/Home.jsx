@@ -25,13 +25,14 @@ const Home = () => (
     <div className="container">
       <section id="hero" className="row">
         <div className="col-md-5 mt-4">
-          <h1>Cutting edge automatic yield farming</h1>
+          <h1>Push the boundaries of DeFi</h1>
           <h4>
             <p>
-              The highest yielding DeFi farming strategies change every day.
-              Trying to keep up will destroy your yield with transaction fees.
+              Invest like the DeFi whales by yield farming with complex high APY strategies.
             </p>
-            <p>The DALP automatically balances liquidity across the latest high yielding DeFi strategies.</p>
+            <p>
+              <b>APY.Finance</b> will automatically route your tokens into cutting edge yield farming strategies to earn the highest APY.
+            </p>
           </h4>
           <div className={cn(full, allCenter, noMarginPad)}>
             <Row className={cn(full, "mt-2", noMarginPad, leftCenter)}>
@@ -63,7 +64,7 @@ const Home = () => (
       <section id="pools" className="row mb-0">
         <div className="col-md-12 text-center">
           <h3 className="section-header">
-            The DALP strategies use leading DeFi protocols and platforms
+            APY.Finance uses leading DeFi protocols for its cutting edge strategies
           </h3>
         </div>
         <div className="row d-flex align-items-center mt-4 text-center">
@@ -95,9 +96,9 @@ const Home = () => (
       <div className="container">
         <Row className={cn(full, "mt-3", noMarginPad, allCenter)}>
           <Col xs="12" lg="10" className={cn(topCenter, noMarginPad)}>
-            <h2>DALP Features</h2>
+            <h2>APY.Finance Features</h2>
             <h3 className="section-header">
-              See how DALP works to help earn you the highest returns.
+              How you can get the most out of DeFi with APY.Finance
             </h3>
 
             <Features />

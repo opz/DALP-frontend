@@ -53,7 +53,7 @@ const Features = () => {
         <Col xs="6" className={cn(leftCenter, noMarginPad)}>
           <div className={cn(full, topLeft, noMarginPad)}>
             <h4>Decentralized and Community-Owned</h4>
-            <p>Users are incentivized with the APY governance token to keep strategy models up-to-date with the latest DeFi developements.</p>
+            <p>Users are incentivized with the APY governance token to keep strategy models up-to-date with the latest DeFi developments.</p>
             <p>Fully community-owned. Propose and vote on any system parameter.</p>
           </div>
         </Col>

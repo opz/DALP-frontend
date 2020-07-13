@@ -18,6 +18,7 @@ import synthetix from "../../assets/images/synthetix.png";
 import compound from "../../assets/images/compound.png";
 import balancer from "../../assets/images/balancer.png";
 import piedao from "../../assets/images/piedao.png";
+import curve from "../../assets/images/curve.png";
 import github from "../../assets/images/github-logo.svg";
 import hero from "../../assets/images/hero-img-2.png";
 
@@ -66,7 +67,7 @@ const Home = () => (
           />
         </div>
       </section>
-      <section id="pools" className="row mb-0">
+      <section id="pools" className="row mb-0 pb-5">
         <div className="col-md-12 text-center">
           <h3 className="section-header">
             APY.Finance connects with the leading DeFi protocols
@@ -83,17 +84,20 @@ const Home = () => (
             <img src={balancer} alt="Balancer" className="logo-img" />
           </div>
         </div>
-        <div className="row d-flex justify-content-center align-items-center mt-5 text-center">
+        <div className="row d-flex justify-content-center align-items-center mt-4 text-center">
           <div className="col-md-4">
             <img src={uniswap} alt="Uniswap" className="logo-img" />
           </div>
           <div className="col-md-4">
             <img src={synthetix} alt="Synthetix" className="logo-img" />
           </div>
+          <div className="col-md-4">
+            <img src={curve} alt="Curve" className="logo-img" />
+          </div>
         </div>
       </section>
     </div>
-    <section id="features" className="row bg-gray">
+    <section id="features" className="mt-5">
       <div className="container">
         <Row className={cn(full, "mt-3", noMarginPad, allCenter)}>
           <Col xs="12" lg="10" className={cn(topCenter, noMarginPad)}>
@@ -107,7 +111,7 @@ const Home = () => (
         </Row>
       </div>
     </section>
-    <section id="team" className="row bg-gray mb-5">
+    <section id="team" className="mb-5">
       <div className="container">
         <Row className={cn(full, "mt-3", noMarginPad, allCenter)}>
           <Col xs="12" lg="10" className={cn(topCenter, noMarginPad)}>

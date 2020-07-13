@@ -36,3 +36,13 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: ${{ secrets.AWS_REGION }}
         SOURCE_DIR: "build"
+    - name: Fix CSS mimetype
+      run: |
+        aws s3 cp --recursive --region ${{ secrets.AWS_REGION }} \
+          s3://${{ secrets.AWS_PRODUCTION_BUCKET_NAME }}/ s3://${{ secrets.AWS_PRODUCTION_BUCKET_NAME }}/ \
+          --exclude "*" --include "*.css" --content-type "text/css" --metadata-directive "REPLACE"
+      env:
+        AWS_S3_BUCKET: ${{ secrets.AWS_PRODUCTION_BUCKET_NAME }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: ${{ secrets.AWS_REGION }}

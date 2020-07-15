@@ -18,7 +18,7 @@ import synthetix from "../../assets/images/synthetix.png";
 import compound from "../../assets/images/compound.png";
 import balancer from "../../assets/images/balancer.png";
 import piedao from "../../assets/images/piedao.png";
-import curve from "../../assets/images/curve.png";
+import jarvis from "../../assets/images/jarvis.png";
 import github from "../../assets/images/github-logo.svg";
 import hero from "../../assets/images/hero-img-2.png";
 
@@ -27,7 +27,7 @@ const Home = () => (
     <div className="container">
       <section id="hero" className="row">
         <div className="col-md-5 mt-4">
-          <h1>Layer 2 for yield farming</h1>
+          <h1>Smart Yield Farming Aggregator</h1>
           <h4>
             <p>
               <b>APY.Finance</b> smart contracts continuously route your funds to the latest-and-greatest yield farming strategies.
@@ -78,7 +78,7 @@ const Home = () => (
             <img src={compound} alt="Compound" className="logo-img" />
           </div>
           <div className="col-md-4">
-            <img src={piedao} alt="PieDAO" className="logo-img" />
+            <img src={synthetix} alt="Synthetix" className="logo-img" />
           </div>
           <div className="col-md-4">
             <img src={balancer} alt="Balancer" className="logo-img" />
@@ -89,10 +89,10 @@ const Home = () => (
             <img src={uniswap} alt="Uniswap" className="logo-img" />
           </div>
           <div className="col-md-4">
-            <img src={synthetix} alt="Synthetix" className="logo-img" />
+            <img src={jarvis} alt="Jarvis" className="logo-img" />
           </div>
           <div className="col-md-4">
-            <img src={curve} alt="Curve" className="logo-img" />
+            <img src={piedao} alt="PieDAO" className="logo-img" />
           </div>
         </div>
       </section>

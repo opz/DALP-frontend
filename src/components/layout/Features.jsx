@@ -29,8 +29,12 @@ const Features = () => {
             <p className={cn("text-right")}>
               APY.Finance connects DeFi money legos together to innovate high APY strategies with diversified smart contract risk.
             </p>
-            <p>Auto-swap liquidity mining rewards to compound APY.</p>
-            <p>Customize by asset choice and risk tolerance.</p>
+            <p className={cn("text-right")}>
+              Lock in profits from liquidity mining rewards to compound APY.
+            </p>
+            <p className={cn("text-right")}>
+              Customize by asset exposure and risk tolerance.
+            </p>
           </div>
         </Col>
       </Row>
@@ -50,11 +54,15 @@ const Features = () => {
         <Col xs="6" className={cn(allCenter, noMarginPad)}>
           <img src={governance} alt="bars" className={cn("features-graphic")} />
         </Col>
-        <Col xs="6" className={cn(leftCenter, noMarginPad)}>
-          <div className={cn(full, topLeft, noMarginPad)}>
-            <h4>Decentralized and Community-Owned</h4>
-            <p>Users are incentivized with the APY governance token to keep strategy models up-to-date with the latest DeFi developments.</p>
-            <p>Fully community-owned. Propose and vote on any system parameter.</p>
+        <Col xs="6" className={cn(rightCenter, noMarginPad)}>
+          <div className={cn(full, topRight, noMarginPad)}>
+            <h4 className={cn("text-right")}>Decentralized and Community-Owned</h4>
+            <p className={cn("text-right")}>
+              Users are incentivized with the APY governance token to keep strategy models up-to-date with the latest DeFi developments.
+            </p>
+            <p className={cn("text-right")}>
+              Fully community-owned. Propose and vote on any system parameter.
+            </p>
           </div>
         </Col>
       </Row>

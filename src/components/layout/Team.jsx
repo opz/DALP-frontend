@@ -12,8 +12,6 @@ import will from "../../assets/images/team-will.jpeg";
 import sunil from "../../assets/images/team-sunil.jpeg";
 import dina from "../../assets/images/team-dina.jpg";
 import shun from "../../assets/images/team-shun.jpeg";
-import github from "../../assets/images/github-logo-black.svg";
-import linkedin from "../../assets/images/linkedin.svg";
 
 const Team = () => {
   return (

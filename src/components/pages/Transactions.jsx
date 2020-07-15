@@ -62,11 +62,12 @@ const Transactions = () => {
         fromBlock: "earliest",
         toBlock: "latest"
       }).then(results => {
-        Promise.all(results.slice(-25).reverse().map(result => {
+        Promise.all(results.map(result => {
           return wallet.eth.getTransaction(result["transactionHash"]);
         })).then(rawTransactions => {
           const transactions = rawTransactions.map((rawTx, i) => ({ ...rawTx, ...results[i] }));
-          setTransactions(transactions);
+          const transactionsByAddress = transactions.filter(tx => tx["from"] === account);
+          setTransactions(transactionsByAddress);
         });
       });
     }

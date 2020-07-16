@@ -77,7 +77,7 @@
 }
 
 .team-graphic {
-  @include md() {
+  @include xs() {
     max-width: 100px !important;
     max-height: 100px !important;
     border-radius: 50%;

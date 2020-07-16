@@ -67,7 +67,7 @@ const Transactions = () => {
         })).then(rawTransactions => {
           const transactions = rawTransactions.map((rawTx, i) => ({ ...rawTx, ...results[i] }));
           const transactionsByAddress = transactions.filter(tx => tx["from"] === account);
-          setTransactions(transactionsByAddress);
+          setTransactions(transactionsByAddress.reverse());
         });
       });
     }

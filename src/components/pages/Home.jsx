@@ -115,7 +115,6 @@ const Home = () => (
       <div className="container">
         <Row className={cn(full, "mt-3", noMarginPad, allCenter)}>
           <Col xs="12" lg="10" className={cn(topCenter, noMarginPad)}>
-            <h2>Team</h2>
             <Team />
           </Col>
         </Row>

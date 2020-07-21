@@ -60,6 +60,8 @@ const Team = () => {
             <b>Sunil Srivatsa</b>
             <br />
             DeFi Strategy Advisor
+            <br />
+            <small>Co-Founder of Urza DAO</small>
           </p>
         </Col>
         <Col xs="6" md="4" className={cn(topCenter, noMarginPad)}>
@@ -70,6 +72,8 @@ const Team = () => {
             <b>Pascal Tallarida</b>
             <br />
             Advisor
+            <br />
+            <small>Founder of Jarvis</small>
           </p>
         </Col>
       </Row>

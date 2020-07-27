@@ -13,6 +13,7 @@ import Features from "../layout/Features";
 import Team from "../layout/Team";
 import ConnectButton from "../elements/ConnectButton";
 import Newsletter from "../layout/Newsletter"
+import Footer from '../layout/Footer'
 
 import uniswap from "../../assets/images/uniswap.png";
 import synthetix from "../../assets/images/synthetix.png";
@@ -130,6 +131,7 @@ const Home = () => (
         </Row>
       </div>
     </section>
+    <Footer/>
   </div>
 );
 

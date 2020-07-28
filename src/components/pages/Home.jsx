@@ -12,6 +12,8 @@ import cn from "classnames";
 import Features from "../layout/Features";
 import Team from "../layout/Team";
 import ConnectButton from "../elements/ConnectButton";
+import Newsletter from "../layout/Newsletter"
+import Footer from '../layout/Footer'
 
 import uniswap from "../../assets/images/uniswap.png";
 import synthetix from "../../assets/images/synthetix.png";
@@ -19,7 +21,7 @@ import compound from "../../assets/images/compound.png";
 import balancer from "../../assets/images/balancer.png";
 import piedao from "../../assets/images/piedao.png";
 import jarvis from "../../assets/images/jarvis.png";
-import github from "../../assets/images/github-logo.svg";
+// import github from "../../assets/images/github-logo.svg";
 import hero from "../../assets/images/hero-img-2.png";
 
 const Home = () => (
@@ -33,7 +35,7 @@ const Home = () => (
               <b>APY.Finance</b> smart contracts continuously route your funds to the latest-and-greatest yield farming strategies.
             </p>
           </h4>
-          <div className={cn(full, leftLeft, noMarginPad)}>
+          {/* <div className={cn(full, leftLeft, noMarginPad)}>
             <Row className={cn(full, "mt-2", noMarginPad, leftLeft)}>
               <Col xs="6" className={cn(leftLeft, noMarginPad)}>
                 <a
@@ -50,14 +52,22 @@ const Home = () => (
                 </a>
               </Col>
             </Row>
-          </div>
+          </div> */}
           <div className={cn(full, leftLeft, noMarginPad)}>
             <Row className={cn(full, "mt-2", noMarginPad, leftLeft)}>
-              <Col xs="6" className={cn(leftLeft, noMarginPad)}>
+              <Col className={cn(leftLeft, noMarginPad)}>
                 <ConnectButton homePage={true} />
               </Col>
             </Row>
           </div>
+          <div className={cn(full, leftLeft, noMarginPad)}>
+            <Row className={cn(full, "mt-2", noMarginPad, leftLeft)}>
+              {/* <Col xs="6" className={cn(leftLeft, noMarginPad)}> */}
+                  <Newsletter />
+              {/* </Col> */}
+            </Row>
+          </div>
+
         </div>
         <div className="col-md-6 offset-md-1">
           <img
@@ -120,6 +130,7 @@ const Home = () => (
         </Row>
       </div>
     </section>
+    <Footer/>
   </div>
 );
 

@@ -129,7 +129,7 @@ section.bg-gray {
 .subscribe-container {
   justify-content: left;
   display: grid;
-  margin: 2vh 0;
+  margin: 5vh 0 2vh;
   place-items: center;
   width: 100%;
   /* height: 200px; */
@@ -179,14 +179,15 @@ section.bg-gray {
   flex-direction: row;
   justify-content: center;
   width: fit-content;
-  margin: 0 auto;
+  height: fit-content;
+  margin: 10vh auto 5vh;
 }
 
 
 .icon-link-wrapper {
   height: 30px;
   width: 30px;
-  margin: 0 5px;
+  margin: 0 15px;
 }
 
 

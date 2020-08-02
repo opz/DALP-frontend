@@ -20,19 +20,19 @@ const Footer = () => (
         icon={medium}
       />
       <IconLinks
-        link={"https://twitter.com/home"}
+        link={"https://twitter.com/apyfinance"}
         icon={twitter}
       />
       <IconLinks
-        link={"https://discord.com/new"}
+        link={"https://discord.gg/uzqAsmZ"}
         icon={discord}
       />
       <IconLinks
-        link={"https://telegram.org/"}
+        link={"https://t.me/apyfinancechat"}
         icon={telegram}
       />
       <IconLinks
-        link={"https://telegram.org/"}
+        link={"mailto:will@apy.finance"}
         icon={mail}
       />
       {/*

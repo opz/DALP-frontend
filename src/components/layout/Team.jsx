@@ -19,7 +19,7 @@ const Team = () => {
   return (
     <div className={cn(full, topCenter, noMarginPad)}>
       <h2>Team</h2>
-      <Row className={cn(full, "my-2", noMarginPad, topAlign)}>
+      <Row className={cn(full, noMarginPad, topAlign)}>
         <Col xs="6" md="4" className={cn(topCenter, noMarginPad)}>
           <div className={cn(full, allCenter, noMarginPad)}>
             <img src={will} alt="will" className={cn("team-graphic")} />
@@ -40,6 +40,8 @@ const Team = () => {
             Solidity Engineer
           </p>
         </Col>
+      </Row>
+      <Row className={cn(full, noMarginPad, topAlign)}>
         <Col xs="6" md="4" className={cn(topCenter, noMarginPad)}>
           <div className={cn(full, allCenter, noMarginPad)}>
             <img src={shun} alt="shun" className={cn("team-graphic")} />

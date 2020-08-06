@@ -49,7 +49,7 @@ const Team = () => {
           <p className={cn("mt-3", "text-center")}>
             <b>Shun Bhark</b>
             <br />
-            Full-Stack Engineer
+            Full-Stack Engineer 
           </p>
         </Col>
         <Col xs="6" md="4" className={cn(topCenter, noMarginPad)}>

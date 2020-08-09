@@ -16,7 +16,7 @@ const Footer = () => (
         icon={github}
       />
       <IconLinks
-        link={"https://medium.com/@ethdapp"}
+        link={"https://medium.com/apy-finance"}
         icon={medium}
       />
       <IconLinks

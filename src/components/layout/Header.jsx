@@ -15,6 +15,9 @@ const Header = ({ location, history }) => {
         isDashboard ? `navbar-blue` : `navbar-light`
       }`}
     >
+      <div className="warning">
+        <span>APY.Finance has not yet launched the APY token. Do not trust any claims from unofficial sources.</span>
+      </div>
       <div className="container">
         <Link to="/" className="navbar-brand" href="#">
           <img alt="APY.Finance" src={isDashboard ? iconWhite : iconBlue} />

@@ -27,6 +27,8 @@
 
 body {
   font-family: 'Sofia Pro';
+  padding: none;
+  margin: none;
 }
 
 #page {
@@ -67,7 +69,12 @@ h3.section-header {
 }
 
 .navbar {
-  height: 80px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* border: 1px solid red; */
+  padding: 0;
 }
 
 .navbar-brand {
@@ -77,6 +84,7 @@ h3.section-header {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 24px;
+
 }
 
 .navbar-brand > img {
@@ -203,4 +211,21 @@ section.bg-gray {
   background-size: 100%;
   background-position: center;
   opacity: 0.7;
+}
+
+.warning {
+  height: fit-content;
+  border-radius: 0 0 5px 5px;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(78, 66, 223, 0.6);
+  color: #fff;
+  padding: 15px 0;
+  margin-bottom: 2vh;
+}
+
+.warning > p {
+  border: 1px solid red;
+  height: 100%;
+  line-height: 100%;
 }

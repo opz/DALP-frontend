@@ -36,6 +36,15 @@ body {
   margin-bottom: 40px;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
 h3 {
   font-family: 'Barlow', sans-serif;
   font-weight: 700;
@@ -107,7 +116,7 @@ h3.section-header {
   font-size: 16px;
 }
 
-.navbar-blue a {
+.navbar-blue a, a {
   color: white;
 }
 
@@ -115,7 +124,7 @@ h3.section-header {
   border-left: 1px solid rgba(0,0,0,.1);
 }
 
-a.nav-link.active {
+a.nav-link.active, a {
   border-bottom: 1px solid white;
   padding-bottom: 0px;
 }

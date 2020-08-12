@@ -32,7 +32,7 @@ const Footer = () => (
         icon={telegram}
       />
       <IconLinks
-        link={"mailto:will@apy.finance"}
+        link={"mailto:info@apy.finance"}
         icon={mail}
       />
       {/*

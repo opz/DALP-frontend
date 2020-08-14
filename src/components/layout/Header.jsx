@@ -16,7 +16,7 @@ const Header = ({ location, history }) => {
       }`}
     >
       <div className="warning">
-        <span>APY.Finance has not yet launched the APY token. Do not trust any claims from unofficial sources. Follow us on <a href="https://t.me/apyfinancechat">Telegram</a> for official updates.</span>
+        <span>The APY token has not been launched. Do not trust any claims from unofficial sources. Follow us on <a href="https://t.me/apyfinancechat">Telegram</a> for updates.</span>
       </div>
       <div className="container">
         <Link to="/" className="navbar-brand" href="#">

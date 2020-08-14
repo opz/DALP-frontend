@@ -233,8 +233,9 @@ section.bg-gray {
   margin-bottom: 2vh;
 }
 
-.warning > p {
-  border: 1px solid red;
+.warning > span {
+  /* border: 1px solid red; */
   height: 100%;
   line-height: 100%;
+  font-size: 0.85em;
 }

@@ -124,7 +124,7 @@ h3.section-header {
   border-left: 1px solid rgba(0,0,0,.1);
 }
 
-a.nav-link.active, a {
+a.nav-link.active {
   border-bottom: 1px solid white;
   padding-bottom: 0px;
 }

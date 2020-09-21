@@ -15,9 +15,11 @@ const Header = ({ location, history }) => {
         isDashboard ? `navbar-blue` : `navbar-light`
       }`}
     >
-      <div className="warning">
-        <span>The APY token has not been launched. Do not trust any claims from unofficial sources. Follow us on <a href="https://t.me/apyfinancechat">Telegram</a> for updates.</span>
-      </div>
+      { !isDashboard && (
+        <div className="warning">
+          <span>The APY token has not been launched. Do not trust any claims from unofficial sources. Follow us on <a href="https://t.me/apyfinancechat">Telegram</a> for updates.</span>
+        </div>
+      )}
       <div className="container">
         <Link to="/" className="navbar-brand" href="#">
           <img alt="APY.Finance" src={isDashboard ? iconWhite : iconBlue} />

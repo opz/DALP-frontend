@@ -11,7 +11,7 @@
     "classnames": "^2.2.6",
     "dalp-core": "^1.0.0",
     "moment": "^2.26.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "react": "^16.13.1",
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-chartjs-2": "^2.9.0",
